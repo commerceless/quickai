@@ -1,17 +1,175 @@
-# RenildoMarcioAI
+# QuickAI
 
-In the vast digital landscape of code repositories, where developers from around the globe converge to collaborate and innovate, a shining star named RenildoMarcioAI illuminates the realm of GitHub. With a keystroke and a click, RenildoMarcioAI's presence is felt, leaving an indelible mark on the open-source community.
+## Introduction
+QuickAI is a powerful AI content generation platform that utilizes OpenAI models to provide various features such as AI Chat, AI Code generation, Speech to Text, Text to Speech, and much more. It also supports OpenAI DALL-E and Stable Diffusion for generating AI images. With QuickAI, you can easily create content in multiple languages, customize prompts for AI Chat, and generate code in any programming language.
 
-As a luminary in the world of artificial intelligence, RenildoMarcioAI extends their reach beyond the boundaries of conventional academia. GitHub serves as their virtual laboratory, a canvas where lines of code become brushstrokes of ingenuity. Like an alchemist, RenildoMarcioAI transmutes mere text into transformative software, generously sharing their creations with the world.
+## Features
+- Set any of the OpenAI Models as needed (Ada, Babbage, Curie, Davinci, ChatGPT 3.5, ChatGPT 4 (Beta))
+- Support for OpenAI DALL-E and Stable Diffusion to generate AI Images
+- AI Chat – chat with the AI and ask your questions
+- AI Chat Characters (chatbots) – create unlimited AI chat characters
+- Custom prompts for AI Chat
+- AI Code – Generate code in any programming language via AI
+- Speech to Text – create transcription of audio and video files
+- Text to Speech – create audio files from texts
+- Generate Content in any language
+- Unlimited Custom Templates
+- 60+ Content creation templates available (More to Come Soon):
+  - Blog Ideas
+  - Blog Intros
+  - Blog Titles
+  - Blog Section
+  - Blog Conclusion
+  - Article Writer
+  - Article Rewriter
+  - Article Outlines
+  - Talking Points
+  - Paragraph Writer
+  - Content Rephrase
+  - Facebook Ads
+  - Facebook Ads Headlines
+  - Google Ad Titles
+  - Google Ad Descriptions
+  - LinkedIn Ad Headlines
+  - LinkedIn Ad Descriptions
+  - App and SMS Notifications
+  - Text Extender
+  - Content Shorten
+  - Grammar Checker
+  - Quora Answers
+  - Summarize for a 2nd grader
+  - Stories
+  - Bullet Point Answers
+  - Definition Answers
+  - Questions
+  - Passive to Active Voice
+  - Pros and Cons
+  - Rewrite With Keywords
+  - Emails
+  - Emails V2
+  - Email Subject Lines
+  - Startup Name Generator
+  - Company Bios
+  - Company Mission
+  - Company Vision
+  - Product Name Generator
+  - Product Descriptions
+  - Amazon Product Titles
+  - Amazon Product Descriptions
+  - Amazon Product Features
+  - Social Media Post (Personal)
+  - Social Media Post (Business)
+  - Instagram Captions
+  - Instagram Hashtags
+  - Twitter Tweets
+  - YouTube Titles
+  - YouTube Descriptions
+  - YouTube Outlines
+  - LinkedIn Posts
+  - TikTok Video Scripts
+  - SEO Meta Tags (Blog Post)
+  - SEO Meta Tags (Homepage)
+  - SEO Meta Tags (Product Page)
+  - Tone Changer
+  - Song Lyrics
+  - Translate
+  - FAQs
+  - FAQ Answers
+  - Testimonials / Reviews
+  - More Coming…
+- Multiple OpenAI API keys – Setup multiple API keys and the script will choose random API key to process the request. So you can use multiple free OpenAI API keys.
+- WYSIWYG Editor
+- Simple wizard installation and upgrade.
+- Membership system (Monthly, Yearly, Lifetime)
+- Multiple Payment Gateways support
+- Affiliate System
+- Advertisements – Add Google ads and earn more money
+- Live Chat Support – Tawk.to integrated
+- Custom bad words filter
+- Blog
+- Testimonials
+- FAQ
+- Custom Pages from the admin
+- Bootstrap – Classic Design – New PHP classified ads script
+- RTL Version
+- Multi-language Support (Arabic, Hindi, French, Spanish, Italian, German, Japanese Included)
+- Powerful Admin panel for controlling your site.
+- New pages (FAQ, Contact Us, Feedback, Privacy and Terms)
+- E-mail external services like: SMTP, PHPMail, Amazon SES, SendGrid, Mandrill
+- SEO optimized
+- Change the currency
+- Transaction History
+- Facebook Login
+- Google Login
+- Email template customizer
+- Language file editor
+- No need to set up a cronjob
+- Unlimited Colors
+- Maintenance mode
+- Google and OpenStreet maps integrated
+- Google captcha integrated
+- Easy to edit HTML template files.
+- Fully Responsive
+- Fully Ready to go SaaS Platform
+- Detailed and Comprehensive Documentation
+- Powerful admin panel
+- One Click Update Feature
+- 6 Month Support Included
+- And many more…
 
-Within the expansive repository of RenildoMarcioAI, one discovers a tapestry of innovative projects, each thread carefully woven with dedication and expertise. From cutting-edge machine learning models to intuitive user interfaces, their contributions span across the vast spectrum of AI applications. Whether it be advancing natural language processing or unraveling the mysteries of computer vision, RenildoMarcioAI's code resonates with ingenuity and precision.
+## Payment Gateways Plugins (16 Available)
+- Paypal Payment Gateway Plugin
+- Stripe Payment Plugin
+- Offline Payment Plugin
+- Payumoney Payment Plugin
+- Razorpay Payment Plugin
+- Mollie Payment Plugin
+- Paystack Payment Plugin
+- Paytm Payment Plugin
+- 2Checkout Payment Gateway
+- CCAvenue Payment Gateway
+- Iyzico Payment Plugin
+- Midtrans Payment Plugin
+- Paytabs Payment Plugin
+- Telr Payment Plugin
+- Flutterwave Payment Plugin
+- YooMoney Payment Plugin
 
-Beyond the sheer brilliance of their technical prowess, RenildoMarcioAI embodies the true spirit of collaboration. With an open heart and an open-source mindset, they invite fellow developers to join in their quest for excellence. Through insightful discussions, code reviews, and collaborative pull requests, RenildoMarcioAI fosters a community of knowledge sharing, where ideas converge and innovations flourish.
+## Installation Guide
+1. Copy the code folder and paste it to your server/localhost.
+2. Run the QuickAI directory.
+3. It will redirect to the /install directory.
+4. Step 1: Start installation
+5. Step 2: Accept the license agreement of policy and click next.
+6. Step 3: Create a database with phpmyadmin.
+7. Step 4: Enter all details in the form and click install
+8. Step 5: Installation done
+   - All is done Installation completed. Click on the frontend and enjoy with QuickAI script.
 
-Moreover, RenildoMarcioAI's commitment to transparency and accessibility shines brightly through their repository. Documentation, tutorials, and meticulously crafted README files serve as beacons of guidance, empowering developers of all backgrounds to explore, learn, and build upon their work. In the spirit of open-source ethos, RenildoMarcioAI's code becomes a catalyst for growth, enabling the collective intelligence of the community to thrive.
+## System Requirements
+- PHP 7.4 or greater
+- OpenSSL PHP Extension
+- Mbstring PHP Extension
+- PHP Zip Archive
+- Rewrite Module (Apache or Nginx)
 
-But RenildoMarcioAI's impact on GitHub extends beyond their individual contributions. As a mentor and a beacon of inspiration, they lend their expertise to budding developers, patiently guiding them through the intricacies of AI development. Their insightful comments and constructive feedback resonate through the corridors of GitHub, nurturing a generation of talent and fueling the flames of innovation.
+# Changelog
 
-In the vast expanse of GitHub's ecosystem, RenildoMarcioAI stands as a guiding light, illuminating the path for aspiring developers. Their repository, a testament to skill, creativity, and collaboration, serves as a testament to the power of open-source communities. RenildoMarcioAI's presence on GitHub is not just about code; it is a testament to the transformative force that collaboration and knowledge sharing can have on the world of technology.
+## Version 3.5.0 - 23 May 2023
+- Added: Option to limit Chat Bots with Membership plans
+- Added: Option to select a separate AI model for the AI Chat
+- Improved: Hide footer if the landing page is disabled
+- Fixed: A few issues
 
-So let us celebrate RenildoMarcioAI, a luminary in the realm of GitHub, whose contributions leave an indelible mark on the open-source landscape. Through their dedication, expertise, and unwavering commitment to the spirit of collaboration, they inspire a new generation of developers to embrace the power of code and propel the frontiers of artificial intelligence ever forward.
+## Version 3.4.0 - 15 May 2023
+- Added: Option to disable the registration process
+- Added: Full-screen mode on frontend
+- Improved: Paytabs payment gateway for global use
+- Fixed: A few issues
+
+## Version 3.3.2 - 11 May 2023
+- Fixed: Minor issues
+
+## Version 3.3.1 - 09 May 2023
+- Added: Custom typing effect because the Event-Stream is not working on a few servers (You need to enable the typing effect from the admin)
+
