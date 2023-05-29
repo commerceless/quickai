@@ -1,3 +1,6 @@
+[Introduction](https://github.com/RenildoMarcioAI/quickai#introduction) | [Features](https://github.com/RenildoMarcioAI/quickai#features) | [Payment Gateways Plugins (16 available)](https://github.com/RenildoMarcioAI/quickai#payment-gateways-plugins-16-available) | [Installation Guide](https://github.com/RenildoMarcioAI/quickai#installation-guide) | [System Requirements](https://github.com/RenildoMarcioAI/quickai#system-requirements) | [Changelog](https://github.com/RenildoMarcioAI/quickai#changelog)
+
+
 ![QuickAI Logo](https://i.imgur.com/uFXbYbI.png)
 
 # QuickAI
