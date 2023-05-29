@@ -1,8 +1,14 @@
 <p align="center">
   <img src="https://i.imgur.com/uFXbYbI.png" alt="QuickAI Logo">
 </p>
-
-[Introduction](https://github.com/RenildoMarcioAI/quickai#introduction) | [Features](https://github.com/RenildoMarcioAI/quickai#features) | [Payment Gateways Plugins (16 available)](https://github.com/RenildoMarcioAI/quickai#payment-gateways-plugins-16-available) | [Installation Guide](https://github.com/RenildoMarcioAI/quickai#installation-guide) | [System Requirements](https://github.com/RenildoMarcioAI/quickai#system-requirements) | [Changelog](https://github.com/RenildoMarcioAI/quickai#changelog)
+<p align="center">
+  <a href="https://github.com/RenildoMarcioAI/quickai#introduction">Introduction</a> |
+  <a href="https://github.com/RenildoMarcioAI/quickai#features">Features</a> |
+  <a href="https://github.com/RenildoMarcioAI/quickai#payment-gateways-plugins-16-available">Payment Gateways Plugins (16 available)</a> |
+  <a href="https://github.com/RenildoMarcioAI/quickai#installation-guide">Installation Guide</a> |
+  <a href="https://github.com/RenildoMarcioAI/quickai#system-requirements">System Requirements</a> |
+  <a href="https://github.com/RenildoMarcioAI/quickai#changelog">Changelog</a>
+</p>
 
 # QuickAI
 
