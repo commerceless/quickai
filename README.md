@@ -1,3 +1,5 @@
+![QuickAI Logo](https://i.imgur.com/uFXbYbI.png)
+
 # QuickAI
 
 ## Introduction
