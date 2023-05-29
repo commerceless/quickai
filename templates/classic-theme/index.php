@@ -3,41 +3,41 @@ overall_header();
 global $config;
 ?>
 <?php print_adsense_code('header_bottom'); ?>
-    <div class="hero-section">
-        <div class="container">
+<div class="hero-section">
+    <div class="container">
 
-            <!-- Intro Headline -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="text-center hero-content">
-                        <img width="180"
-                             src="<?php _esc(TEMPLATE_URL . '/images/home-hero-icon.png'); ?>">
+        <!-- Intro Headline -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center hero-content">
+                    <img width="180"
+                         src="<?php _esc(TEMPLATE_URL . '/images/home-hero-icon.png'); ?>">
 
-                        <h1 class="margin-bottom-10 text_gradient_animation">
-                            <strong><?php _e("Best AI Content Writer"); ?></strong>
-                        </h1>
-                        <p><?php _e("Create SEO-optimized and unique content for your blogs, ads, emails, and website 10X faster & save hours of work."); ?></p>
-                        <?php
-                  if ($is_login) {
-                      ?>
+                    <h1 class="margin-bottom-10 text_gradient_animation">
+                        <strong><?php _e("Best AI Content Writer"); ?></strong>
+                    </h1>
+                    <p><?php _e("Create SEO-optimized and unique content for your blogs, ads, emails, and website 10X faster & save hours of work."); ?></p>
+                    <?php
+              if ($is_login) {
+                  ?>
 
 <a href="<?php url('DASHBOARD') ?>"
-                         class="button ripple-effect button-sliding-icon"><?php _e("Dashboard") ?><i
-                                  class="icon-feather-arrow-right"></i></a>
-                  <?php } else { ?>
+                     class="button ripple-effect button-sliding-icon"><?php _e("Dashboard") ?><i
+                              class="icon-feather-arrow-right"></i></a>
+              <?php } else { ?>
 <a href="<?php url('SIGNUP') ?>"
-                         class="button ripple-effect button-sliding-icon"><?php _e("Get Started For Free"); ?><i
-                                  class="icon-feather-arrow-right"></i></a>
-                        <div class="margin-top-2 gray"><small><?php _e("No credit card required."); ?></small></div>
-                  <?php } ?>
+                     class="button ripple-effect button-sliding-icon"><?php _e("Get Started For Free"); ?><i
+                              class="icon-feather-arrow-right"></i></a>
+                    <div class="margin-top-2 gray"><small><?php _e("No credit card required."); ?></small></div>
+              <?php } ?>
 
 
-                    </div>
                 </div>
             </div>
-
         </div>
+
     </div>
+</div>
     <!-- Content
     ================================================== -->
     <!-- Section How it Work Start-->
@@ -143,7 +143,7 @@ if (get_option("enable_ai_templates", 1)) {
                                                 <i class="<?php _esc($template['icon']) ?>"></i>
                                             </div>
                                             <h4>
-                                                <?php _e($template['title']) ?>
+                                                <?php _esc($template['title']) ?>
                                                 <?php if (!is_null($plan_templates) && !in_array($template['slug'], $plan_templates)) { ?>
                                                     <span class="dashboard-status-button yellow"><i
                                                                 class="fa fa-gift"></i> <?php _e("Pro") ?></span>
@@ -340,6 +340,9 @@ print_adsense_code('home_page_2'); ?>
                                                     <i class="icon-feather-help-circle margin-left-2"
                                                        data-tippy-placement="top"
                                                        title="<?php _e("Chat with the AI bot") ?>"></i>
+                                                </li>
+                                                <li>
+                                                    <strong><?php _esc(count($plan['ai_chatbots'])) ?></strong> <?php _e("AI Chat Bots") ?>
                                                 </li>
                                             <?php } ?>
                                             <?php if ($config['enable_ai_code']) { ?>

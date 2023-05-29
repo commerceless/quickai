@@ -120,7 +120,12 @@ if(isset($accessToken)){
         create_user_session($userData['id'],$userData['username'],$userData['password_hash'],$userData['user_type']);
         update_lastactive();
 
-        redirect_parent($config['site_url'] ."login",true);
+        $redirect_url = get_option('after_login_link');
+        if(empty($redirect_url)){
+            $redirect_url = $config['site_url'] ."login";
+        }
+
+        redirect_parent($redirect_url,true);
     }
 
     // Get logout url

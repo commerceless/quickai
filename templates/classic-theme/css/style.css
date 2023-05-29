@@ -2704,7 +2704,8 @@ span.status-not-available {background-color: #ffe6e6;color: #ea5252;}
 .ai-templates .content {padding: 20px}
 .ai-templates:hover {box-shadow: 0 2px 8px rgb(0 0 0 / 8%); transform: translateY(-3px)}
 .ai-templates-category-title h4 {margin-top: 30px;font-weight: 700;border-bottom: 1px dashed #ccc;}
-.ai-templates.ai-templates-pro {border-color: #ffd400;background-color: #fffef7;}
+.ai-templates-pro {border: 1px solid #ffd400;background-color: #fffef7;}
+.chatbots-pro .dashboard-status-button {position: absolute;right: 10px;top: 10px;}
 .line-height-1 {line-height: 1;}
 .form-required {font-size: 16px;vertical-align: sub;margin-left: 4px;color: red;}
 .form-text {position: absolute;right: 0;top: 0;font-size: 10px;}

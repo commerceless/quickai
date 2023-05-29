@@ -40,11 +40,14 @@
                     </ul>
 
                     <ul data-submenu-title="<?php _e("Organize and Manage") ?>">
+                        <?php if (get_option('enable_ai_templates', 1)) { ?>
                         <li class="<?php echo CURRENT_PAGE == 'app/ai-templates' ? 'active' : ''; ?>">
                             <a href="<?php url("AI_TEMPLATES") ?>"><i
                                         class="icon-feather-layers"></i> <?php _e("Templates") ?></a></li>
 
-                        <?php if ($config['enable_ai_images']) { ?>
+                        <?php
+                        }
+                        if ($config['enable_ai_images']) { ?>
                         <li class="<?php echo CURRENT_PAGE == 'app/ai-images' ? 'active' : ''; ?>"><a
                                     href="<?php url("AI_IMAGES") ?>"><i
                                         class="icon-feather-image"></i> <?php _e("AI Images") ?></a></li>

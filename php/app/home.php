@@ -105,6 +105,7 @@ if($plan['status']){
 
     $sub_types[$plan['id']]['ai_model'] = $settings['ai_model'];
     $sub_types[$plan['id']]['ai_chat'] = $settings['ai_chat'];
+    $sub_types[$plan['id']]['ai_chatbots'] = !empty($settings['ai_chatbots']) ? $settings['ai_chatbots'] : [];
     $sub_types[$plan['id']]['ai_code'] = $settings['ai_code'];
     $sub_types[$plan['id']]['show_ads'] = $settings['show_ads'];
     $sub_types[$plan['id']]['live_chat'] = $settings['live_chat'];
@@ -155,6 +156,7 @@ if($plan['status']){
 
     $sub_types[$plan['id']]['ai_model'] = $settings['ai_model'];
     $sub_types[$plan['id']]['ai_chat'] = $settings['ai_chat'];
+    $sub_types[$plan['id']]['ai_chatbots'] = !empty($settings['ai_chatbots']) ? $settings['ai_chatbots'] : [];
     $sub_types[$plan['id']]['ai_code'] = $settings['ai_code'];
     $sub_types[$plan['id']]['show_ads'] = $settings['show_ads'];
     $sub_types[$plan['id']]['live_chat'] = $settings['live_chat'];
@@ -215,6 +217,7 @@ foreach ($rows as $plan)
 
     $sub_types[$plan['id']]['ai_model'] = $settings['ai_model'];
     $sub_types[$plan['id']]['ai_chat'] = $settings['ai_chat'];
+    $sub_types[$plan['id']]['ai_chatbots'] = !empty($settings['ai_chatbots']) ? $settings['ai_chatbots'] : [];
     $sub_types[$plan['id']]['ai_code'] = $settings['ai_code'];
     $sub_types[$plan['id']]['show_ads'] = $settings['show_ads'];
     $sub_types[$plan['id']]['live_chat'] = $settings['live_chat'];

@@ -737,17 +737,10 @@ function addMembershipPlan()
         $active = isset($_POST['active']) ? 1 : 0;
 
         $_POST['ai_model'] = !empty($_POST['ai_model']) ? $_POST['ai_model'] : get_option('open_ai_model');
+        $_POST['ai_chat_model'] = !empty($_POST['ai_chat_model']) ? $_POST['ai_chat_model'] : get_option('open_ai_chat_model');
 
-        if($_POST['ai_model'] != 'gpt-3.5-turbo' && $_POST['ai_model'] != 'gpt-4'){
-            // disable chat if chatgpt is not selected
-            if($_POST['ai_chat']){
-                echo $json = '{"status" : "error","message" : "' . __('<strong>ChatGPT</strong> OpenAI model is required for AI Chat feature.') . '"}';
-                die();
-            }
-        }
-
-        if(empty($_POST['ai_templates']))
-            $_POST['ai_templates'] = array();
+        $_POST['ai_templates'] = !empty($_POST['ai_templates']) ? $_POST['ai_templates'] : array();
+        $_POST['ai_chatbots'] = !empty($_POST['ai_chatbots']) ? $_POST['ai_chatbots'] : array();
 
         $settings = array(
             'ai_model' => $_POST['ai_model'],
@@ -755,6 +748,8 @@ function addMembershipPlan()
             'ai_words_limit' => (int) $_POST['ai_words_limit'],
             'ai_images_limit' => (int) $_POST['ai_images_limit'],
             'ai_chat' => (int) $_POST['ai_chat'],
+            'ai_chatbots' => $_POST['ai_chatbots'],
+            'ai_chat_model' => $_POST['ai_chat_model'],
             'ai_code' => (int) $_POST['ai_code'],
             'ai_text_to_speech_limit' => (int) $_POST['ai_text_to_speech_limit'],
             'ai_speech_to_text_limit' => (int) $_POST['ai_speech_to_text_limit'],
@@ -819,17 +814,10 @@ function editMembershipPlan()
         $active = $_POST['active'] ? 1 : 0;
 
         $_POST['ai_model'] = !empty($_POST['ai_model']) ? $_POST['ai_model'] : get_option('open_ai_model');
+        $_POST['ai_chat_model'] = !empty($_POST['ai_chat_model']) ? $_POST['ai_chat_model'] : get_option('open_ai_chat_model');
 
-        if($_POST['ai_model'] != 'gpt-3.5-turbo' && $_POST['ai_model'] != 'gpt-4'){
-            // disable chat if chatgpt is not selected
-            if($_POST['ai_chat']){
-                echo $json = '{"status" : "error","message" : "' . __('<strong>ChatGPT</strong> OpenAI model is required for AI Chat feature.') . '"}';
-                die();
-            }
-        }
-
-        if(empty($_POST['ai_templates']))
-            $_POST['ai_templates'] = array();
+        $_POST['ai_templates'] = !empty($_POST['ai_templates']) ? $_POST['ai_templates'] : array();
+        $_POST['ai_chatbots'] = !empty($_POST['ai_chatbots']) ? $_POST['ai_chatbots'] : array();
 
         $settings = array(
             'ai_model' => $_POST['ai_model'],
@@ -837,6 +825,8 @@ function editMembershipPlan()
             'ai_words_limit' => (int) $_POST['ai_words_limit'],
             'ai_images_limit' => (int) $_POST['ai_images_limit'],
             'ai_chat' => (int) $_POST['ai_chat'],
+            'ai_chatbots' => $_POST['ai_chatbots'],
+            'ai_chat_model' => $_POST['ai_chat_model'],
             'ai_code' => (int) $_POST['ai_code'],
             'ai_text_to_speech_limit' => (int) $_POST['ai_text_to_speech_limit'],
             'ai_speech_to_text_limit' => (int) $_POST['ai_speech_to_text_limit'],
@@ -1842,8 +1832,6 @@ function editAITplCategory() {
     $result['id'] = $template->id();
     $result['message'] = __('Successfully Saved.');
     die(json_encode($result));
-
-
 }
 
 function editAPIKey() {
@@ -1877,8 +1865,6 @@ function editAPIKey() {
     $result['id'] = $api_key->id();
     $result['message'] = __('Successfully Saved.');
     die(json_encode($result));
-
-
 }
 
 function editAIChatBot() {
@@ -2242,16 +2228,6 @@ function SaveSettings(){
         update_option("smtp_secure",$_POST['smtp_secure']);
         update_option("smtp_auth",$_POST['smtp_auth']);
 
-        update_option("aws_host",$_POST['aws_host']);
-        update_option("aws_access_key",$_POST['aws_access_key']);
-        update_option("aws_secret_key",$_POST['aws_secret_key']);
-
-        update_option("mandrill_user",$_POST['mandrill_user']);
-        update_option("mandrill_key",$_POST['mandrill_key']);
-
-        update_option("sendgrid_user",$_POST['sendgrid_user']);
-        update_option("sendgrid_pass",$_POST['sendgrid_pass']);
-
         $status = "success";
         $message = __("Saved Successfully");
     }
@@ -2321,6 +2297,7 @@ function SaveSettings(){
         update_option("ai_code_max_token", validate_input($_POST['ai_code_max_token']));
 
         update_option("enable_ai_chat", validate_input($_POST['enable_ai_chat']));
+        update_option("open_ai_chat_model", validate_input($_POST['open_ai_chat_model']));
         update_option("ai_chat_max_token", validate_input($_POST['ai_chat_max_token']));
         update_option("enable_default_chat_bot", validate_input($_POST['enable_default_chat_bot']));
         update_option("ai_chat_bot_name", validate_input($_POST['ai_chat_bot_name']));

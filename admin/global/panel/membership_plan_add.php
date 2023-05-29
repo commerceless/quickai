@@ -85,10 +85,40 @@ include '../datatable-json/includes.php';
                         <option value="1"><?php _e('Allow') ?></option>
                     </select>
                     <span class="form-text text-muted"><?php _e('Allow AI Chat for this plan\'s users.') ?></span>
-                    <span class="form-text text-warning"><?php _e('<strong>ChatGPT</strong> OpenAI model is required for this feature.') ?></span>
                     <?php if (!get_option('enable_ai_chat')) { ?>
                         <small class="text-danger"><?php _e('AI chat is disabled, please enable it from the AI settings to use it.'); ?></small>
                     <?php } ?>
+                </div>
+                <?php if (!get_option('single_model_for_plans')) { ?>
+                    <div class="form-group">
+                        <label for="ai_chat_model"><?php _e('OpenAI Model for AI Chat') ?></label>
+                        <select id="ai_chat_model" class="form-control" name="ai_chat_model">
+                            <?php
+                            $chat_models = [
+                                'gpt-3.5-turbo' => __('ChatGPT 3.5'),
+                                'gpt-4' => __('ChatGPT 4 (Beta)'),
+                            ];
+                            foreach ($chat_models as $key => $model) { ?>
+                                <option value="<?php _esc($key) ?>"><?php _esc($model) ?></option>
+                            <?php } ?>
+                        </select>
+                        <span class="form-text text-muted"><?php _e('Select the model for AI Chat.') ?></span>
+                    </div>
+                <?php } ?>
+                <div class="form-group">
+                    <label for="ai_chatbots"><?php _e('Chat Bots') ?></label>
+                    <select class="form-control quick-multi-select" id="ai_chatbots" name="ai_chatbots[]" multiple>
+                        <?php
+                        $chat_bots = ORM::for_table($config['db']['pre'] . 'ai_chat_bots')
+                            ->where('active', 1)
+                            ->order_by_asc('position')
+                            ->find_array();
+                        foreach ($chat_bots as $chat_bot) {
+                            echo '<option value="' . $chat_bot['id'] . '">' . $chat_bot['name'] . '</option>';
+                        }
+                        ?>
+                    </select>
+                    <span class="form-text text-muted"><?php _e('Select Chat Bots for this plan.') ?></span>
                 </div>
                 <div class="form-group">
                     <label for="ai_code"><?php _e('AI Code') ?></label>

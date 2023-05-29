@@ -387,7 +387,7 @@ function importSql($con, $filePath, $prefix)
 
     // Delete the SQL file
     if (file_exists($filePath)) {
-        unlink($filePath);
+        //unlink($filePath);
     }
 
     return true;

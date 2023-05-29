@@ -200,7 +200,23 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <?php quick_switch(__('Enable AI Chat'), 'enable_ai_chat', (get_option("enable_ai_chat") == '1')); ?>
-                            <span class="form-text text-warning mt-n3 form-group"><?php _e('<strong>ChatGPT</strong> OpenAI model is required for this feature.') ?></span>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group open_ai_model">
+                                <label for="open_ai_chat_model"><?php _e('OpenAI Model') ?></label>
+                                <select id="open_ai_chat_model" class="form-control" name="open_ai_chat_model">
+                                    <?php
+                                    $selected_model = get_option('open_ai_chat_model');
+                                    $chat_models = [
+                                        'gpt-3.5-turbo' => __('ChatGPT 3.5'),
+                                        'gpt-4' => __('ChatGPT 4 (Beta)'),
+                                    ];
+                                    foreach ($chat_models as $key => $model) { ?>
+                                        <option value="<?php _esc($key) ?>" <?php echo $key == $selected_model ? 'selected' : '' ?>><?php _esc($model) ?></option>
+                                    <?php } ?>
+                                </select>
+                                <span class="form-text text-muted"><?php _e('Select the model for AI Chat.') ?></span>
+                            </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">

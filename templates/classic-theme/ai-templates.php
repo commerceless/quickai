@@ -69,7 +69,7 @@ overall_header(__("Templates"));
                                                     <i class="<?php _esc($template['icon']) ?>"></i>
                                                 </div>
                                                 <h4>
-                                                    <?php _e($template['title']) ?>
+                                                    <?php _esc($template['title']) ?>
                                                     <?php if (!in_array($template['slug'], $plan_templates)) { ?>
                                                         <span class="dashboard-status-button yellow"><i
                                                                     class="fa fa-gift"></i> <?php _e("Pro") ?></span>

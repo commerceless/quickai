@@ -104,11 +104,13 @@ if (isset($current_user['id'])) {
     $membership = get_user_membership_detail($_SESSION['user']['id']);
     $words_limit = $membership['settings']['ai_words_limit'];
     $membership_ai_chat = $membership['settings']['ai_chat'];
+    $membership_ai_chatbots = !empty($membership['settings']['ai_chatbots']) ? $membership['settings']['ai_chatbots'] : [];
 
     HtmlTemplate::display('ai-chat', array(
         'total_words_used' => $total_words_used,
         'words_limit' => $words_limit,
         'membership_ai_chat' => $membership_ai_chat,
+        'membership_ai_chatbots' => $membership_ai_chatbots,
         'conversations' => $conversations,
         'bot_id' => $bot_id,
         'bot_role' => $bot_role,

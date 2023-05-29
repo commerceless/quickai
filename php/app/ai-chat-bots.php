@@ -29,6 +29,7 @@ if (isset($current_user['id'])) {
     $membership = get_user_membership_detail($_SESSION['user']['id']);
     $words_limit = $membership['settings']['ai_words_limit'];
     $membership_ai_chat = $membership['settings']['ai_chat'];
+    $membership_ai_chatbots = !empty($membership['settings']['ai_chatbots']) ? $membership['settings']['ai_chatbots'] : [];
 
     $ai_chat_bot_name = !empty($config['ai_chat_bot_name']) ? $config['ai_chat_bot_name'] : __('AI Chat Bot');
     $ai_chat_bot_avatar = !empty($config['chat_bot_avatar']) ? $config['chat_bot_avatar'] : 'default_user.png';
@@ -37,6 +38,7 @@ if (isset($current_user['id'])) {
         'total_words_used' => $total_words_used,
         'words_limit' => $words_limit,
         'membership_ai_chat' => $membership_ai_chat,
+        'membership_ai_chatbots' => $membership_ai_chatbots,
         'chat_bots' => $chat_bots,
         'ai_chat_bot_name' => $ai_chat_bot_name,
         'ai_chat_bot_avatar' => $ai_chat_bot_avatar

@@ -1,6 +1,6 @@
 <?php print_adsense_code('footer_top'); ?>
 <!-- Footer -->
-<div id="footer">
+<div id="footer" <?php echo get_option('disable_landing_page') ? 'class="d-none"' : ''; ?>>
     <div class="footer-middle-section">
         <div class="container">
             <div class="row">

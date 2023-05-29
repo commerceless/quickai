@@ -76,8 +76,12 @@ overall_header(__("AI Chat Bots"));
                             $img_url = get_avatar_url_by_name($chat_bot['name']);
                         ?>
                         <div class="col-md-3">
-                            <div class="dashboard-box margin-top-0 margin-bottom-30">
+                            <div class="dashboard-box margin-top-0 margin-bottom-30 <?php echo (!in_array($chat_bot['id'], $membership_ai_chatbots)) ? 'ai-templates-pro chatbots-pro' : ''; ?>">
                                 <div class="content text-center">
+                                    <?php if (!in_array($chat_bot['id'], $membership_ai_chatbots)) { ?>
+                                        <span class="dashboard-status-button yellow" title="<?php _e("Upgrade your plan to use this chatbot.") ?>" data-tippy-placement="top"><i
+                                                    class="fa fa-gift"></i> <?php _e("Pro") ?></span>
+                                    <?php } ?>
                                     <img src="<?php _esc($img_url); ?>" alt="<?php _esc($chat_bot['name']) ?>"
                                          class="rounded" width="100%">
                                     <div class="padding-top-20 padding-right-20 padding-left-20 padding-bottom-20">

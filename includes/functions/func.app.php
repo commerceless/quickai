@@ -889,10 +889,10 @@ function get_ai_voices()
                                 'vendor_id' => 'aws_std',
                                 'voice_type' => 'standard',
                             ),
-                        'br-aws-std-victoria' =>
+                        'br-aws-std-vitoria' =>
                             array(
-                                'voice' => 'Victoria',
-                                'voice_id' => 'br-aws-std-victoria',
+                                'voice' => 'Vitoria',
+                                'voice_id' => 'br-aws-std-vitoria',
                                 'gender' => 'Female',
                                 'vendor_id' => 'aws_std',
                                 'voice_type' => 'standard',

@@ -121,6 +121,11 @@ else {
     // current page
     define("CURRENT_PAGE", '404');
 
-   header("HTTP/1.0 404 Not Found");
-   require APPPATH.'global/404.php';
+    header("HTTP/1.0 404 Not Found");
+    require APPPATH.'global/404.php';
 }
+
+/* close DB connection */
+$mysqli->close();
+
+ORM::set_db(null);

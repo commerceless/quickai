@@ -307,13 +307,14 @@
                             $msgSendBtn.removeClass('button-progress').prop('disabled', false);
 
                             if(!ENABLE_TYPING_EFFECT) {
+                                $msg_txt.removeClass('result-streaming');
                                 $msg_txt.html(escape_html(msg));
                                 hljs.highlightAll();
                             } else {
                                 $typing.hide();
                                 $msg_txt.show();
 
-                                var str = escape_html( msg),
+                                var str = escape_html(msg),
                                     isTag,
                                     text;
                                 (function type() {
@@ -395,7 +396,7 @@
                                 }
 
                                 $typing.hide();
-                                $msg_txt.show();
+                                $msg_txt.show().addClass('result-streaming');
 
                                 let str = msg;
                                 if(str.indexOf('<') === -1){
@@ -426,29 +427,8 @@
                                     str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
                                 }
 
-                                var isTag,
-                                    text;
-                                (function type() {
-                                    if (i < str.length) {
-                                        text = str.slice(0, ++i);
-                                        if (text === str) return;
-
-                                        $msg_txt.html(text);
-                                        hljs.highlightAll();
-
-                                        $msgChatInner.animate({
-                                            scrollTop: $msgChatInner.prop("scrollHeight")
-                                        }, 0);
-
-                                        var char = text.slice(-1);
-                                        if (char === '<') isTag = true;
-                                        if (char === '>') isTag = false;
-
-
-                                        if (isTag) return type();
-                                        setTimeout(type, 10);
-                                    }
-                                }());
+                                $msg_txt.html(str);
+                                hljs.highlightAll();
 
                                 $msgChatInner.animate({
                                     scrollTop: $msgChatInner.prop("scrollHeight")

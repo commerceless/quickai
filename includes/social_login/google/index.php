@@ -81,12 +81,13 @@ if ($gClient->getAccessToken()) {
 
         update_lastactive();
 
-        redirect_parent($config['site_url'] ."login",true);
-    }
+        $redirect_url = get_option('after_login_link');
+        if(empty($redirect_url)){
+            $redirect_url = $config['site_url'] ."login";
+        }
 
-    $error = __('Unexpected error, please try again.');
-    echo "<script type='text/javascript'>alert('$error');</script>";
-    redirect_parent($config['site_url'] ."login",true);
+        redirect_parent($redirect_url,true);
+    }
 } else {
 	$authUrl = $gClient->createAuthUrl();
     headerRedirect($authUrl);
