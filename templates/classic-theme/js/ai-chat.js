@@ -301,6 +301,7 @@
                     eventSource = new EventSource(`${ajaxurl}?action=chat_stream&conv_id=${response.conversation_id}&bot_id=${$bot_id.val()}&last_message_id=${response.last_message_id}`);
 
                     let msg = '';
+                    let i = 0;
                     eventSource.onmessage = function (e) {
                         if (e.data === "[DONE]") {
                             $msgSendBtn.removeClass('button-progress').prop('disabled', false);
@@ -309,8 +310,10 @@
                                 $msg_txt.html(escape_html(msg));
                                 hljs.highlightAll();
                             } else {
+                                $typing.hide();
+                                $msg_txt.show();
+
                                 var str = escape_html( msg),
-                                    i = 0,
                                     isTag,
                                     text;
                                 (function type() {
@@ -332,10 +335,6 @@
 
                                         if (isTag) return type();
                                         setTimeout(type, 10);
-                                    } else {
-                                        $msgChatInner.animate({
-                                            scrollTop: $msgChatInner.prop("scrollHeight")
-                                        }, 500);
                                     }
                                 }());
                             }
@@ -387,12 +386,17 @@
                                 return;
                             }
 
-                            $typing.hide();
-                            $msg_txt.show();
-
                             let txt = JSON.parse(e.data).choices[0].delta.content;
                             if (txt !== undefined) {
                                 msg = msg + txt;
+
+                                if(ENABLE_TYPING_EFFECT) {
+                                    return;
+                                }
+
+                                $typing.hide();
+                                $msg_txt.show();
+
                                 let str = msg;
                                 if(str.indexOf('<') === -1){
                                     str = escape_html(msg)
@@ -421,8 +425,30 @@
                                     });
                                     str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
                                 }
-                                $msg_txt.html(str);
-                                hljs.highlightAll();
+
+                                var isTag,
+                                    text;
+                                (function type() {
+                                    if (i < str.length) {
+                                        text = str.slice(0, ++i);
+                                        if (text === str) return;
+
+                                        $msg_txt.html(text);
+                                        hljs.highlightAll();
+
+                                        $msgChatInner.animate({
+                                            scrollTop: $msgChatInner.prop("scrollHeight")
+                                        }, 0);
+
+                                        var char = text.slice(-1);
+                                        if (char === '<') isTag = true;
+                                        if (char === '>') isTag = false;
+
+
+                                        if (isTag) return type();
+                                        setTimeout(type, 10);
+                                    }
+                                }());
 
                                 $msgChatInner.animate({
                                     scrollTop: $msgChatInner.prop("scrollHeight")
@@ -555,6 +581,8 @@
     }
 
     function appendMessage(name, img, side, text, id) {
+
+        text = text || '';
 
         let typing = (text.length === 0 && side === 'left')
             ? `<div class="typing-indicator">

@@ -144,7 +144,7 @@ overall_header(__("AI Images"));
                                 </select>
                             </div>
                         </div>
-                        <?php if (get_option('ai_image_api') != 'stable-diffusion') { ?>
+                        <?php if (get_option('ai_image_api') != 'stable-diffusion' && check_allow()) { ?>
                         <div class="col-sm-3">
                             <div class="submit-field margin-bottom-20">
                                 <h6><?php _e("Resolution") ?></h6>
@@ -157,7 +157,7 @@ overall_header(__("AI Images"));
                             </div>
                         </div>
                         <?php } else { ?>
-                            <input type="hidden" name="resolution" value="512x512">
+                            <input type="hidden" name="resolution" value="256x256">
                         <?php } ?>
                         <div class="col-sm-3">
                             <div class="submit-field margin-bottom-20">
@@ -186,7 +186,7 @@ overall_header(__("AI Images"));
                             <a href="<?php echo _esc($config['site_url'], 0) . 'storage/ai_images/' . $ai_image['image']; ?>"
                                target="_blank" class="ai-lightbox-image">
                                 <img class="lazy-load rounded"
-                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
+                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                                      data-original="<?php echo _esc($config['site_url'], 0) . 'storage/ai_images/small_' . $ai_image['image']; ?>"
                                      alt="<?php _esc($ai_image['description']) ?>" data-tippy-placement="top"
                                      title="<?php _esc($ai_image['description']) ?>">
@@ -194,7 +194,6 @@ overall_header(__("AI Images"));
                         </div>
                     <?php } ?>
                 </div>
-                <div class="dashboard-footer-spacer"></div>
                 <?php print_adsense_code('footer_top'); ?>
                 <!-- Footer -->
                 <div class="dashboard-footer-spacer"></div>

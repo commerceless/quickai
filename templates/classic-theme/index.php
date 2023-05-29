@@ -17,10 +17,21 @@ global $config;
                             <strong><?php _e("Best AI Content Writer"); ?></strong>
                         </h1>
                         <p><?php _e("Create SEO-optimized and unique content for your blogs, ads, emails, and website 10X faster & save hours of work."); ?></p>
-                        <a href="<?php url('SIGNUP') ?>"
-                           class="button ripple-effect button-sliding-icon"><?php _e("Get Started For Free"); ?><i
-                                    class="icon-feather-arrow-right"></i></a>
+                        <?php
+                  if ($is_login) {
+                      ?>
+
+<a href="<?php url('DASHBOARD') ?>"
+                         class="button ripple-effect button-sliding-icon"><?php _e("Dashboard") ?><i
+                                  class="icon-feather-arrow-right"></i></a>
+                  <?php } else { ?>
+<a href="<?php url('SIGNUP') ?>"
+                         class="button ripple-effect button-sliding-icon"><?php _e("Get Started For Free"); ?><i
+                                  class="icon-feather-arrow-right"></i></a>
                         <div class="margin-top-2 gray"><small><?php _e("No credit card required."); ?></small></div>
+                  <?php } ?>
+
+
                     </div>
                 </div>
             </div>
@@ -177,7 +188,7 @@ print_adsense_code('home_page_2'); ?>
                                 <a href="<?php echo _esc($config['site_url'], 0) . 'storage/ai_images/' . $ai_image['image']; ?>"
                                    target="_blank" class="ai-lightbox-image">
                                     <img class="lazy-load rounded"
-                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
+                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                                          data-original="<?php echo _esc($config['site_url'], 0) . 'storage/ai_images/small_' . $ai_image['image']; ?>"
                                          alt="<?php _esc($ai_image['description']) ?>" data-tippy-placement="top"
                                          title="<?php _esc($ai_image['description']) ?>">

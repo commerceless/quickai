@@ -39,6 +39,9 @@
                         <?php quick_switch(__('Enable Maintenance Mode'), 'enable_maintenance_mode', (get_option("enable_maintenance_mode") == '1')); ?>
                     </div>
                     <div class="col-sm-6">
+                        <?php quick_switch(__('Enable new users registration'), 'enable_user_registration', (get_option("enable_user_registration", '1') == '1')); ?>
+                    </div>
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="default_user_plan"><?php _e('Default Membership Plan for New Users') ?></label>
                             <select name="default_user_plan" id="default_user_plan"

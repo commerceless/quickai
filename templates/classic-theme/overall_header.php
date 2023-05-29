@@ -153,6 +153,9 @@
                     <a href="javascript:void(0);" class="header-icon d-none">
                         <i class="fa fa-bars"></i>
                     </a>
+                    <a href="javascript:void(0);" class="header-icon toggleFullScreen d-none">
+                        <i class="icon-feather-maximize"></i>
+                    </a>
 
                 </div>
                 <!-- Left Side Content / End -->
@@ -250,7 +253,7 @@
                                 <button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown"
                                         title="English">
                                     <span class="filter-option pull-left"
-                                          id="selected_lang"><img src="templates/classic-theme/images/<?php _esc($config['lang_code']); ?>.svg" style="width: 16px; height: 16px;" alt="<?php _esc($config['lang_code']); ?>"/></span>&nbsp;
+                                          id="selected_lang"><img src="<?php _esc($config['site_url']); ?>templates/classic-theme/images/<?php _esc($config['lang_code']); ?>.svg" style="width: 26px; height: 26px;" alt="<?php _esc($config['lang_code']); ?>"/></span>&nbsp;
                                     <span class="caret"></span>
                                 </button>
                                 <div class="dropdown-menu scrollable-menu open">
@@ -259,7 +262,7 @@
                                         foreach ($languages as $lang) {
                                               echo '<li  data-lang="' . $lang['file_name'] . '">
                                                       <a role="menuitem" tabindex="-1" rel="alternate" href="' . url("HOME", false) . '/' . $lang['code'] . '">
-                                                          <img src="templates/classic-theme/images/' . $lang['code'] . '.svg" style="width: 16px; height: 16px;" alt="' . $lang['name'] . '"/> ' . $lang['name'] . '
+                                                          <img src="' . $config['site_url'] . 'templates/classic-theme/images/' . $lang['code'] . '.svg" style="width: 16px; height: 16px;" alt="' . $lang['name'] . '"/> ' . $lang['name'] . '
                                                       </a>
                                                     </li>';
                                           }

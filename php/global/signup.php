@@ -32,6 +32,11 @@ if(isset($_GET['confirm']))
     exit;
 }
 
+// if disabled by admin
+if(!get_option("enable_user_registration", '1')) {
+    page_not_found();
+}
+
 if(isset($current_user['id']))
 {
     header("Location: ".$config['site_url']."dashboard");

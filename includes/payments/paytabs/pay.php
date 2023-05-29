@@ -57,7 +57,7 @@ $data = json_encode($data);
 $result = array();
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://secure.paytabs.sa/payment/request');
+curl_setopt($ch, CURLOPT_URL, 'https://secure-global.paytabs.com/payment/request');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);

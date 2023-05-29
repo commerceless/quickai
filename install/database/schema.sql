@@ -367,7 +367,7 @@ CREATE TABLE IF NOT EXISTS `<<prefix>>pages`
     `name`             varchar(100) COLLATE utf8mb4_unicode_ci            DEFAULT NULL,
     `slug`             varchar(100) COLLATE utf8mb4_unicode_ci            DEFAULT NULL,
     `title`            varchar(200) COLLATE utf8mb4_unicode_ci            DEFAULT NULL,
-    `content`          text COLLATE utf8mb4_unicode_ci                    DEFAULT NULL,
+    `content`          LONGTEXT COLLATE utf8mb4_unicode_ci                    DEFAULT NULL,
     `active`           tinyint(1)                                         DEFAULT 1,
     `created_at`       timestamp                                 NULL     DEFAULT NULL,
     `updated_at`       timestamp                                 NULL     DEFAULT NULL,

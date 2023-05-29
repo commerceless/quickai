@@ -10,6 +10,11 @@ if( !ini_get('allow_url_fopen') ) {
     die('allow_url_fopen is disabled. file_get_contents would not work');
 }
 
+// if disabled by admin
+if(!get_option("enable_user_registration", '1')) {
+    page_not_found();
+}
+
 if(isset($_GET['code'])){
 	$gClient->authenticate($_GET['code']);
 	$_SESSION['token'] = $gClient->getAccessToken();

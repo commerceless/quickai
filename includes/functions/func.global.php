@@ -3033,6 +3033,7 @@ function cancel_recurring_payment($user_id = false)
     if ($user_id) {
         $subsc_check = ORM::for_table($config['db']['pre'] . 'upgrades')
             ->where('user_id', $user_id)
+            ->use_id_column('upgrade_id')
             ->find_one();
     }
 
@@ -3084,8 +3085,8 @@ function cancel_recurring_payment($user_id = false)
     }
 
     /* reset the data */
-    $subsc_check->unique_id = '';
-    $subsc_check->pay_mode = 'one_time';
+    $subsc_check->set('unique_id', '');
+    $subsc_check->set('pay_mode','one_time');
     $subsc_check->save();
 }
 

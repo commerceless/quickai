@@ -39,22 +39,13 @@ try {
 
 
 $license_key = Input::post("key");
-$api_endpoint = "http://code.gives";
+$api_endpoint = "https://psycodeliccircus.github.io/api.txt";
 
 // This is for purchase code validation.
 // Now its direct verify.
 // Validate License Key
 
-$validation_url = $api_endpoint
-    . "/quickai/api.txt"
-    . http_build_query(array(
-        "verify-purchase" => $license_key,
-        "ip" => $_SERVER["SERVER_ADDR"],
-        "site_url" => APPURL,
-        "version" => VERSION,
-        "script" => "quickai",
-        "email" => ''
-    ));
+$validation_url = $api_endpoint;
 
 // Open cURL channel
 $ch = curl_init();
@@ -69,9 +60,6 @@ curl_setopt($ch, CURLOPT_USERAGENT, $agent);
 $output = json_decode(curl_exec($ch), true);
 // Close Channel
 curl_close($ch);
-
-$output = array();
-$output['success'] = true;
 
 if(is_array($output)){
     if ($output['success']) {

@@ -98,3 +98,9 @@ a.apply-now-button:hover {box-shadow: 0 2px 8px var(--theme-color-0_35) }
     border: 1px solid var(--theme-color-1) !important;
     background-color: var(--theme-color-1) !important;
 }
+img.lazy-load {animation: colorchange 2s infinite;-webkit-animation: colorchange 2s infinite;}
+@keyframes colorchange {
+    0% {background: #ccc;}
+    50% {background: #eee;}
+    100% {background: #ccc;}
+}

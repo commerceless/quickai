@@ -75,7 +75,6 @@
 ================================================== -->
 
 <script src="<?php _esc(TEMPLATE_URL);?>/js/chosen.min.js"></script>
-<script src="<?php _esc(TEMPLATE_URL);?>/js/jquery.lazyload.min.js"></script>
 <script src="<?php _esc(TEMPLATE_URL);?>/js/tippy.all.min.js"></script>
 <script src="<?php _esc(TEMPLATE_URL);?>/js/simplebar.min.js"></script>
 <script src="<?php _esc(TEMPLATE_URL);?>/js/bootstrap-slider.min.js"></script>

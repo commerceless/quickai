@@ -1253,7 +1253,7 @@ function create_article_writer_prompt($title, $description, $language, $tone)
     if ($tone) {
         $tone_text = "Tone of voice of the article must be:\n" . $tone . "\n\n";
     }
-    return $lang_text . "Write a complete article on this topic:\n\n" . $title . "\n\nUse following keywords in the article:\n" . $description . "\n\n" . $tone_text;
+    return $lang_text . "Write a complete 3000+ words long article with your maximum capacity with introduction and conclusion. The article should be nice looking with headings, sub headings and lists. Use this topic:\n\n" . $title . "\n\nUse following keywords in the article:\n" . $description . "\n\n" . $tone_text;
 
 }
 

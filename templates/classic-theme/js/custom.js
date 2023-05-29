@@ -5,13 +5,6 @@
     else rtl = false;
 
     $(document).ready(function () {
-        $("img.lazy-load").lazyload({
-            effect: "fadeIn",
-            load: function () {
-                $(this).removeClass('lazy-load');
-            }
-        });
-
         /*--------------------------------------------------*/
         /*  Sticky Header
         /*--------------------------------------------------*/
@@ -131,6 +124,10 @@
             $(".button.button-sliding-icon").not(".task-listing .button.button-sliding-icon").each(function () {
                 var buttonWidth = $(this).outerWidth() + 30;
                 $(this).css('width', buttonWidth);
+            });
+
+            $("img.lazy-load").each(function() {
+                $(this).attr('src', $(this).attr('data-original')).removeClass('lazy-load');
             });
         });
 
@@ -947,6 +944,30 @@
                     $('.dashboard-sidebar').addClass('hide-sidebar');
 
                 }, 200);
+            }
+        });
+
+        $('.toggleFullScreen').on('click', function (e) {
+            e.preventDefault();
+            if ((document.fullScreenElement) ||
+                (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+                if (document.documentElement.requestFullScreen) {
+                    document.documentElement.requestFullScreen();
+                } else if (document.documentElement.mozRequestFullScreen) {
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.webkitRequestFullScreen) {
+                    document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+                }
+                $(this).find('i').removeClass('icon-feather-maximize').addClass('icon-feather-minimize');
+            } else {
+                if (document.cancelFullScreen) {
+                    document.cancelFullScreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+                $(this).find('i').removeClass('icon-feather-minimize').addClass('icon-feather-maximize');
             }
         });
 

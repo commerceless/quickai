@@ -453,3 +453,9 @@ if (version_compare($config['version'], '3.1', '<')) {
 if (version_compare($config['version'], '3.3.1', '<')) {
     update_option("enable_chat_typing_effect",0);
 }
+
+// version 3.4
+if (version_compare($config['version'], '3.4', '<')) {
+    $sql = "ALTER TABLE `" . $config['db']['pre'] . "pages` CHANGE `content` `content` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;";
+    mysqli_query($mysqli, $sql);
+}

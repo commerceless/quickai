@@ -83,7 +83,7 @@ if(isset($_POST['username']))
             <div class="col-sm-12 col-md-6 offset-md-3">
                 <div class="quick-card card m-t-50">
                     <div class="card-body">
-                        <div class="text-center m-b-20"><img class="img-responsive w-100" src="../storage/logo/<?php echo $config['site_admin_logo']?>" alt="RenildoMarcio" /></div>
+                        <div class="text-center m-b-20"><img class="img-responsive w-100" src="../storage/logo/<?php echo $config['site_admin_logo']?>" alt="bylancer" /></div>
                         <?php if(!empty($error)){ ?>
                         <div class="alert alert-danger m-b-20">
                             <?php echo $error; ?>

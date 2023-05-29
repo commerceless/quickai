@@ -17,10 +17,12 @@ if (isset($current_user['id'])) {
     $total_referred = ORM::for_table($config['db']['pre'] . 'user')
         ->where('referred_by', $_SESSION['user']['id'])
         ->count();
+    $total_referred = $total_referred ?: 0;
 
     $total_earning = ORM::for_table($config['db']['pre'] . 'affiliates')
         ->where('referrer_id', $_SESSION['user']['id'])
         ->sum('commission');
+    $total_earning = $total_earning ?: 0;
 
     $affiliates = ORM::for_table($config['db']['pre'] . 'affiliates')
         ->where('referrer_id', $_SESSION['user']['id'])

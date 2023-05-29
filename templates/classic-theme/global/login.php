@@ -28,8 +28,11 @@ overall_header(__("Login"));
                 <!-- Welcome Text -->
                 <div class="welcome-text">
                     <h3><?php _e("Welcome Back!") ?></h3>
-                    <span><?php _e("Don't have an account?") ?> <a href="<?php url("SIGNUP") ?>"><?php _e("Sign Up Now!") ?></a></span>
+                    <?php if(get_option("enable_user_registration", '1')) { ?>
+                        <span><?php _e("Don't have an account?") ?> <a href="<?php url("SIGNUP") ?>"><?php _e("Sign Up Now!") ?></a></span>
+                    <?php } ?>
                 </div>
+                <?php if(get_option("enable_user_registration", '1')) { ?>
                 <?php if($config['facebook_app_id'] != "" || $config['google_app_id'] != ""){ ?>
                     <div class="social-login-buttons">
                         <?php if($config['facebook_app_id'] != ""){ ?>
@@ -45,6 +48,7 @@ overall_header(__("Login"));
                         <?php } ?>
                     </div>
                     <div class="social-login-separator"><span><?php _e("or") ?></span></div>
+                <?php } ?>
                 <?php } ?>
                 <!-- Form -->
                 <?php

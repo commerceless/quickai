@@ -112,16 +112,29 @@ overall_header(__('View Document'));
             selector: '.tiny-editor',
             min_height: 500,
             resize: true,
-            plugins: 'advlist lists table autolink link wordcount fullscreen autoresize',
+            plugins: 'advlist lists table autolink link fullscreen autoresize directionality',
             toolbar: [
                 "blocks | bold italic underline strikethrough | alignleft aligncenter alignright  | link blockquote",
-                "undo redo | removeformat | table | bullist numlist | outdent indent"
+                "undo redo | removeformat | table | bullist numlist | outdent indent | ltr rtl"
             ],
             menubar: "",
             // link
-            relative_urls: false,
+            relative_urls : false,
+            remove_script_host : false,
+            convert_urls : false,
             link_assume_external_targets: true,
-            content_style: 'body { font-size:14px }'
+            // images
+            image_advtab: true,
+            extended_valid_elements: 'i[*]',
+            content_style: 'body { font-size:14px }',
+            setup: function (editor) {
+                editor.on('change', function () {
+                    tinymce.triggerSave();
+                });
+            },
+            <?php if(get_current_lang_direction() == 'rtl'){ ?>
+            directionality :"rtl"
+            <?php } ?>
         });
     </script>
 <?php } else { ?>

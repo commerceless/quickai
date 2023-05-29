@@ -2178,6 +2178,7 @@ function SaveSettings(){
         update_option("site_title",$_POST['site_title']);
         update_option("disable_landing_page", $_POST['disable_landing_page']);
         update_option("enable_maintenance_mode", $_POST['enable_maintenance_mode']);
+        update_option("enable_user_registration", $_POST['enable_user_registration']);
         update_option("non_active_msg",$_POST['non_active_msg']);
         update_option("non_active_allow",$_POST['non_active_allow']);
         update_option("transfer_filter",$_POST['transfer_filter']);

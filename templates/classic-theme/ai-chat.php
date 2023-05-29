@@ -157,6 +157,10 @@ overall_header(__("AI Chat"));
                                                 class="button ripple-effect">
                                             <?php _e('Send') ?>
                                         </button>
+                                        <button id="chat-send-button" type="submit"
+                                                class="button ripple-effect" hidden>
+                                            <?php _e('Stop') ?>
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="form-error message-reply padding-top-10 padding-bottom-10"></div>

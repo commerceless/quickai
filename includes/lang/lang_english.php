@@ -859,6 +859,7 @@ $lang['Site Title'] = 'Site Title';
 $lang['The site title is what you would like your website to be known as, this will be used in emails and in the title of your webpages.'] = 'The site title is what you would like your website to be known as, this will be used in emails and in the title of your webpages.';
 $lang['Disable Landing Page'] = 'Disable Landing Page';
 $lang['Enable Maintenance Mode'] = 'Enable Maintenance Mode';
+$lang['Enable new users registration'] = 'Enable new users registration';
 $lang['Default Membership Plan for New Users'] = 'Default Membership Plan for New Users';
 $lang['Cron job run time (In seconds)'] = 'Cron job run time (In seconds)';
 $lang['Please enter time in seconds for example: 60 = 1 minutes<br>3600 = 1 Hour.'] = 'Please enter time in seconds for example: 60 = 1 minutes<br>3600 = 1 Hour.';

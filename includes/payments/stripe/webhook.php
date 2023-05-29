@@ -143,7 +143,7 @@ $ip = encode_ip($_SERVER, $_ENV);
 $billing = array(
     'type' => escape(get_user_option($user_id, 'billing_details_type')),
     'tax_id' => escape(get_user_option($user_id, 'billing_tax_id')),
-    'name' => escape(get_user_option($user_id, 'billing_name', $_SESSION['user']['username'])),
+    'name' => escape(get_user_option($user_id, 'billing_name', $user['username'])),
     'address' => escape(get_user_option($user_id, 'billing_address')),
     'city' => escape(get_user_option($user_id, 'billing_city')),
     'state' => escape(get_user_option($user_id, 'billing_state')),
@@ -213,7 +213,7 @@ if ($payment_type == "subscr") {
             `sub_id` = '" . validate_input($package_id) . "',
             `upgrade_expires` = '" . validate_input($expires) . "', 
             `pay_mode` = '$pay_mode', 
-            `unique_id` = '" . validate_input($payment_subscription_id) . "', 
+            `unique_id` = '" . ($payment_subscription_id) . "', 
             `upgrade_lasttime` = '" . time() . "' 
         WHERE `user_id` = '" . validate_input($user_id) . "' LIMIT 1";
         $pdo->query($query);

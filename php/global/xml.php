@@ -20,9 +20,11 @@ if($config['xml_latest'] == 1){
     echo '<loc>' . $link['LOGIN'] . '</loc>';
     echo '</url>';
 
-    echo '<url>';
-    echo '<loc>' . $link['SIGNUP'] . '</loc>';
-    echo '</url>';
+    if(get_option("enable_user_registration", '1')) {
+        echo '<url>';
+        echo '<loc>' . $link['SIGNUP'] . '</loc>';
+        echo '</url>';
+    }
 
     echo '<url>';
     echo '<loc>' . $link['FORGOT'] . '</loc>';
