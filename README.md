@@ -4,7 +4,7 @@
 <p align="center">
   <a href="https://github.com/RenildoMarcioAI/quickai#introduction">Introduction</a> |
   <a href="https://github.com/RenildoMarcioAI/quickai#features">Features</a> |
-  <a href="https://github.com/RenildoMarcioAI/quickai#payment-gateways-plugins-16-available">Payment Gateways Plugins (16 available)</a> |
+  <a href="https://github.com/RenildoMarcioAI/quickai#payment-gateways-plugins-16-available">Payment Gateways</a> |
   <a href="https://github.com/RenildoMarcioAI/quickai#installation-guide">Installation Guide</a> |
   <a href="https://github.com/RenildoMarcioAI/quickai#system-requirements">System Requirements</a> |
   <a href="https://github.com/RenildoMarcioAI/quickai#changelog">Changelog</a>
