@@ -250,17 +250,19 @@
                                 <button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown"
                                         title="English">
                                     <span class="filter-option pull-left"
-                                          id="selected_lang"><?php _esc($config['lang_code']); ?></span>&nbsp;
+                                          id="selected_lang"><img src="templates/classic-theme/images/<?php _esc($config['lang_code']); ?>.svg" style="width: 16px; height: 16px;" alt="<?php _esc($config['lang_code']); ?>"/></span>&nbsp;
                                     <span class="caret"></span>
                                 </button>
                                 <div class="dropdown-menu scrollable-menu open">
                                     <ul class="dropdown-menu inner">
                                         <?php
                                         foreach ($languages as $lang) {
-                                            echo '<li  data-lang="' . $lang['file_name'] . '">
-                                                    <a role="menuitem" tabindex="-1" rel="alternate" href="' . url("HOME", false) . '/' . $lang['code'] . '">' . $lang['name'] . '</a>
-                                                  </li>';
-                                        }
+                                              echo '<li  data-lang="' . $lang['file_name'] . '">
+                                                      <a role="menuitem" tabindex="-1" rel="alternate" href="' . url("HOME", false) . '/' . $lang['code'] . '">
+                                                          <img src="templates/classic-theme/images/' . $lang['code'] . '.svg" style="width: 16px; height: 16px;" alt="' . $lang['name'] . '"/> ' . $lang['name'] . '
+                                                      </a>
+                                                    </li>';
+                                          }
                                         ?>
                                     </ul>
                                 </div>

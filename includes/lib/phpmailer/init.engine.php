@@ -2,7 +2,7 @@
 /**
  * Mailing System
  * @author RenildoMarcio
- * @Copyright (c) 2015-18 RenildoMarcio (renildomarcio.com.br)
+ * @Copyright (c) 2015-18 Devendra Katariya (renildomarcio.com.br)
  */
 
 include_once('class.phpmailer.php');

@@ -1351,3 +1351,6 @@ $lang['Invalid Payment Processor1'] = 'Ogiltig betalningsbehandlare1';
 $lang['Enable "Enter" to send message'] = 'Aktivera "Enter" för att skicka meddelande';
 $lang['Configure whether pressing enter sends a message or not'] = 'Konfigurera om du trycker på enter för att skicka ett meddelande eller inte';
 $lang['Refresh Balance'] = 'Uppdatera balans';
+$lang['Auto Language Detection'] = 'Automatisk språkavkänning';
+$lang['Use visitor\'s browser language as the default language.'] = 'Använd besökarens webbläsarspråk som standardspråk.';
+$lang['This is the email address that the contact and report emails will be sent to.'] = 'Detta är den e-postadress som kontakt- och rapportmejlen kommer att skickas till.';

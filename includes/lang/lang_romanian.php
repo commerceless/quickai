@@ -1354,3 +1354,6 @@ $lang['Invalid Payment Processor1'] = 'Procesor de plăți nevalid1';
 $lang['Enable "Enter" to send message'] = 'Activați „Enter” pentru a trimite mesajul';
 $lang['Configure whether pressing enter sends a message or not'] = 'Configurați dacă apăsând enter trimite un mesaj sau nu';
 $lang['Refresh Balance'] = 'Reîmprospătați echilibrul';
+$lang['Auto Language Detection'] = 'Detectare automată a limbii';
+$lang['Use visitor\'s browser language as the default language.'] = 'Utilizați limba browserului vizitatorului ca limbă implicită.';
+$lang['This is the email address that the contact and report emails will be sent to.'] = 'Aceasta este adresa de e-mail la care vor fi trimise e-mailurile de contact și de raportare.';

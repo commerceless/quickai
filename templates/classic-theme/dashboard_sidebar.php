@@ -20,7 +20,7 @@
                         <li class="<?php echo CURRENT_PAGE == 'app/dashboard' ? 'active' : ''; ?>"><a
                                     href="<?php url("DASHBOARD") ?>"><i
                                         class="icon-feather-grid"></i> <?php _e("Dashboard") ?></a></li>
-                        <li class="<?php echo CURRENT_PAGE == 'app/all-images' || CURRENT_PAGE == 'app/all-documents' ? 'active-submenu' : ''; ?>">
+                        <li class="<?php echo CURRENT_PAGE == 'app/all-images' || CURRENT_PAGE == 'app/all-documents'|| CURRENT_PAGE == 'app/all-speeches' ? 'active-submenu' : ''; ?>">
                             <a href="#"><i class="icon-feather-file-text"></i> <?php _e("My Documents") ?></a>
                             <ul>
                                 <li class="<?php echo CURRENT_PAGE == 'app/all-documents' ? 'active' : ''; ?>"><a

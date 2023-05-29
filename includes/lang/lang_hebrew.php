@@ -1352,3 +1352,6 @@ $lang['Invalid Payment Processor1'] = 'מעבד תשלומים לא חוקי1';
 $lang['Enable "Enter" to send message'] = 'אפשר "Enter" כדי לשלוח הודעה';
 $lang['Configure whether pressing enter sends a message or not'] = 'קבע אם לחיצה על Enter שולחת הודעה או לא';
 $lang['Refresh Balance'] = 'רענן איזון';
+$lang['Auto Language Detection'] = 'זיהוי שפה אוטומטי';
+$lang['Use visitor\'s browser language as the default language.'] = 'השתמש בשפת הדפדפן של המבקר כשפת ברירת המחדל.';
+$lang['This is the email address that the contact and report emails will be sent to.'] = 'זוהי כתובת האימייל שאליה יישלחו הודעות האימייל ליצירת קשר ודיווח.';

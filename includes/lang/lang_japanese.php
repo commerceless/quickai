@@ -1352,3 +1352,6 @@ $lang['Invalid Payment Processor1'] = '無効な支払い処理業者1';
 $lang['Enable "Enter" to send message'] = '「Enter」キーを有効にしてメッセージを送信';
 $lang['Configure whether pressing enter sends a message or not'] = 'Enter キーを押してメッセージを送信するかどうかを構成する';
 $lang['Refresh Balance'] = 'バランスをリフレッシュ';
+$lang['Auto Language Detection'] = '自動言語検出';
+$lang['Use visitor\'s browser language as the default language.'] = '訪問者のブラウザ言語をデフォルト言語として使用します。';
+$lang['This is the email address that the contact and report emails will be sent to.'] = 'これは、連絡先およびレポートの電子メールが送信される電子メール アドレスです。';

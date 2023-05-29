@@ -194,6 +194,7 @@ overall_header(__("AI Images"));
                         </div>
                     <?php } ?>
                 </div>
+                <div class="dashboard-footer-spacer"></div>
                 <?php print_adsense_code('footer_top'); ?>
                 <!-- Footer -->
                 <div class="dashboard-footer-spacer"></div>

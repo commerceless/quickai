@@ -448,3 +448,8 @@ if (version_compare($config['version'], '3.1', '<')) {
     if (!is_dir($dstfile))
         mkdir($dstfile, 0755, true);
 }
+
+// version 3.3.1
+if (version_compare($config['version'], '3.3.1', '<')) {
+    update_option("enable_chat_typing_effect",0);
+}

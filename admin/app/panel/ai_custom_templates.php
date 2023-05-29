@@ -148,7 +148,7 @@ if(!empty($_GET['id'])) {
                 value="">
                 <div class="options-field" style="display: none"'>
                 <input class="form-control mr-1" title="<?php _e('options') ?>" name="parameter_options[]" type="text" placeholder="<?php _e('Options') ?>" value="">` +
-                '<small class="text-muted"><?php _e('Enter comma separated values for the select list.') ?></small>' +
+                '<small class="text-muted"><?php echo escape(__('Enter comma separated values for the select list.')) ?></small>' +
                 '</div>' +
                 '</div>')
         );

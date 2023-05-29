@@ -1351,3 +1351,6 @@ $lang['Invalid Payment Processor1'] = 'Procesador de pago no válido1';
 $lang['Enable "Enter" to send message'] = 'Habilite "Enter" para enviar el mensaje';
 $lang['Configure whether pressing enter sends a message or not'] = 'Configurar si al pulsar enter se envía un mensaje o no';
 $lang['Refresh Balance'] = 'Actualizar saldo';
+$lang['Auto Language Detection'] = 'Detección automática de idioma';
+$lang['Use visitor\'s browser language as the default language.'] = 'Utilice el idioma del navegador del visitante como idioma predeterminado.';
+$lang['This is the email address that the contact and report emails will be sent to.'] = 'Esta es la dirección de correo electrónico a la que se enviarán los correos electrónicos de contacto y de informe.';

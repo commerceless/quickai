@@ -44,7 +44,7 @@ overall_header(__("Templates"));
                         <?php
                         foreach ($ai_templates as $category) { ?>
                             <li><a href="javascript:void();" class="ai-templates-category"
-                                   data-category="<?php _esc($category['id']) ?>"><?php _esc($category['title']) ?></a></li>
+                                   data-category="<?php _esc($category['id']) ?>"><?php _e($category['title']) ?></a></li>
                         <?php }
                         ?>
                     </ul>
@@ -54,7 +54,7 @@ overall_header(__("Templates"));
                         <?php
                         foreach ($ai_templates as $key => $category) { ?>
                             <div class="col-md-12 ai-templates-category-title">
-                                <h4><?php _esc($category['title']) ?></h4>
+                                <h4><?php _e($category['title']) ?></h4>
                             </div>
                             <?php
                             foreach ($category['templates'] as $template) { ?>
@@ -75,7 +75,7 @@ overall_header(__("Templates"));
                                                                     class="fa fa-gift"></i> <?php _e("Pro") ?></span>
                                                     <?php } ?>
                                                 </h4>
-                                                <p class="margin-bottom-0"><?php _esc($template['description']) ?></p>
+                                                <p class="margin-bottom-0"><?php _e($template['description']) ?></p>
                                             </div>
                                         </div>
                                     </a>

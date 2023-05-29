@@ -6,4 +6,4 @@ $config['db']['pass'] = '';
 $config['db']['pre'] = 'vc_';
 
 $config['admin_folder'] = 'admin';
-$config['version'] = '3.3.1';
+$config['version'] = '3.3.2';

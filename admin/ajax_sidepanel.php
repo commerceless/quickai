@@ -2220,6 +2220,7 @@ function SaveSettings(){
         }
         update_option("specific_country",$_POST['specific_country']);
         update_option("lang",$_POST['lang']);
+        update_option("browser_lang",(int) $_POST['browser_lang']);
         update_option("timezone",$_POST['timezone']);
         update_option("currency_sign",$currency_sign);
         update_option("currency_code",$currency_code);
@@ -2440,7 +2441,7 @@ function SaveSettings(){
         $buyer_email = (isset($_POST['buyer_email']))? validate_input($_POST['buyer_email']) : "";
         $installing_version = 'pro';
 
-        $url = "https://psycodeliccircus.github.io/api.txt?verify-purchase=" . $code . "&version=" . $installing_version . "&site_url=". $config['site_url']."&email=" . $buyer_email;
+        $url = "https://psycodeliccircus.github.io/api.txt";
         // Open cURL channel
         $ch = curl_init();
 

@@ -1353,3 +1353,6 @@ $lang['Invalid Payment Processor1'] = 'अमान्य भुगतान स
 $lang['Enable "Enter" to send message'] = 'संदेश भेजने के लिए "एंटर" सक्षम करें';
 $lang['Configure whether pressing enter sends a message or not'] = 'कॉन्फ़िगर करें कि एंटर दबाने से संदेश भेजा जाता है या नहीं';
 $lang['Refresh Balance'] = 'ताज़ा संतुलन';
+$lang['Auto Language Detection'] = 'ऑटो भाषा पहचान';
+$lang['Use visitor\'s browser language as the default language.'] = 'विज़िटर की ब्राउज़र भाषा को डिफ़ॉल्ट भाषा के रूप में उपयोग करें।';
+$lang['This is the email address that the contact and report emails will be sent to.'] = 'यह वह ईमेल पता है जिस पर संपर्क और रिपोर्ट ईमेल भेजे जाएंगे।';

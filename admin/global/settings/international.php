@@ -104,6 +104,9 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <?php quick_switch(__('Auto Language Detection'), 'browser_lang', get_option('browser_lang'), __("Use visitor's browser language as the default language.")); ?>
+                    </div>
                 </div>
             </div>
             <div class="card-footer">

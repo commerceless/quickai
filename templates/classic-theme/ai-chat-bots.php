@@ -82,7 +82,7 @@ overall_header(__("AI Chat Bots"));
                                          class="rounded" width="100%">
                                     <div class="padding-top-20 padding-right-20 padding-left-20 padding-bottom-20">
                                         <h3><?php _esc($chat_bot['name']) ?></h3>
-                                        <small class="margin-top-10"><?php _esc($chat_bot['role']) ?></small>
+                                        <small class="margin-top-10"><?php _e($chat_bot['role']) ?></small>
                                         <div class="margin-top-15">
                                             <a href="<?php url('AI_CHAT') ?>/<?php _esc($chat_bot['id']) ?>"
                                                class="button button-sliding-icon ripple-effect full-width"><?php _e('Chat Now') ?>

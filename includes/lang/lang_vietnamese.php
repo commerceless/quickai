@@ -1351,3 +1351,6 @@ $lang['Invalid Payment Processor1'] = 'Bên xử lý thanh toán không hợp l�
 $lang['Enable "Enter" to send message'] = 'Bật "Enter" để gửi tin nhắn';
 $lang['Configure whether pressing enter sends a message or not'] = 'Định cấu hình xem nhấn enter có gửi tin nhắn hay không';
 $lang['Refresh Balance'] = 'Làm mới số dư';
+$lang['Auto Language Detection'] = 'Tự động phát hiện ngôn ngữ';
+$lang['Use visitor\'s browser language as the default language.'] = 'Sử dụng ngôn ngữ trình duyệt của khách truy cập làm ngôn ngữ mặc định.';
+$lang['This is the email address that the contact and report emails will be sent to.'] = 'Đây là địa chỉ email mà các email liên hệ và báo cáo sẽ được gửi đến.';

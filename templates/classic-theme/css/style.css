@@ -2392,7 +2392,7 @@ a.dashboard-responsive-nav-trigger.active {border-radius: 4px 4px 0 0 }
 .message-bubble.me .message-avatar {left: auto;right: 0 }
 .message-bubble.me .message-text {margin-left: 0;margin-right: 70px;background-color: #66676b;color: #fff;position: relative }
 .message-bubble .message-text:before {content: "";width: 0;height: 0;border-top: 6px solid transparent;border-bottom: 6px solid transparent;border-right: 6px solid #f4f4f4;left: -6px;right: auto;top: 19px;position: absolute }
-.message-bubble.me .message-text:before {border-top: 6px solid transparent;border-bottom: 6px solid transparent;border-left: 6px solid #66676b;border-right: none;right: -6px;left: auto }
+.message-bubble.me .message-text:before {border-top: 6px solid transparent;border-bottom: 6px solid transparent;border-left: 6px solid var(--theme-color-1);border-right: none;right: -6px;left: auto }
 .message-time-sign {text-align: center;display: block;position: relative;margin-bottom: 25px }
 .message-time-sign:before {content: "";height: 1px;background-color: #eaeaea;display: block;max-width: 30%;margin: 0 auto;position: relative;top: 14px;z-index: 10 }
 .message-time-sign span {background-color: #fff;font-size: 14px;color: #888;z-index: 11;position: relative;padding: 0 10px }

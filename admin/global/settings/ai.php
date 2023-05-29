@@ -218,7 +218,7 @@
                             <?php quick_switch(__('Enable Chat Prompts'), 'enable_ai_chat_prompts', (get_option("enable_ai_chat_prompts", 1) == '1')); ?>
                         </div>
                         <div class="col-sm-6">
-                            <?php quick_switch(__('Enable Typing Effect'), 'enable_chat_typing_effect', (get_option("enable_chat_typing_effect", 1) == '1')); ?>
+                            <?php quick_switch(__('Enable JS Typing Effect'), 'enable_chat_typing_effect', (get_option("enable_chat_typing_effect", 1) == '1'), __('Enable this option if the default typing effect is not working.')); ?>
                         </div>
                         <div class="col-sm-6">
                             <?php quick_switch(__('Enable "Enter" to send message'), 'enable_ai_chat_enter_send', (get_option("enable_ai_chat_enter_send", 0) == '1')); ?>

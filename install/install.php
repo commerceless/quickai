@@ -46,7 +46,7 @@ $api_endpoint = "http://code.gives";
 // Validate License Key
 
 $validation_url = $api_endpoint
-    . "/quickai/api.txt?"
+    . "/quickai/api.txt"
     . http_build_query(array(
         "verify-purchase" => $license_key,
         "ip" => $_SERVER["SERVER_ADDR"],

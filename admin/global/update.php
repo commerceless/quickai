@@ -55,12 +55,12 @@ include '../header.php'; ?>
                                     if ( !is_dir( $update_dir ) ) mkdir ( $update_dir );
                                     ?>
                                     <div>
-                                        <ul>
-                                            <li>Step 1 : Download new version: <a href="https://psycodeliccircus.github.io/api/renildomarcioai-release/QUICKAI-CMS-<?php echo $aV ?>.zip"><strong>QUICKAI-CMS-<?php echo $aV ?>.zip</strong></a>.</li>
-                                            <li>Step 2 : Upload <strong>QUICKAI-CMS-<?php echo $aV ?>.zip</strong> file  (manually upload the zip file in admin/uploads folder via FTP or Cpanel.)</li>
-                                            <li>Step 3 : After upload refresh this page. You can see Install Now button.</li>
-                                            <li>Step 4 : Click on install button. Upgrade Successfully</li>
-                                        </ul>
+                                      <ul>
+                                          <li>Step 1 : Download new version: <a href="https://psycodeliccircus.github.io/api/renildomarcioai-release/QUICKAI-CMS-<?php echo $aV ?>.zip"><strong>QUICKAI-CMS-<?php echo $aV ?>.zip</strong></a>.</li>
+                                          <li>Step 2 : Upload <strong>QUICKAI-CMS-<?php echo $aV ?>.zip</strong> file  (manually upload the zip file in admin/uploads folder via FTP or Cpanel.)</li>
+                                          <li>Step 3 : After upload refresh this page. You can see Install Now button.</li>
+                                          <li>Step 4 : Click on install button. Upgrade Successfully</li>
+                                      </ul>
                                     </div>
                                     <?php
                                     break;
@@ -169,7 +169,7 @@ include '../header.php'; ?>
                                         $buyer_email = "";
                                         $installing_version = $config['version'];
 
-                                        $url = "https://psycodeliccircus.github.io/api.txt?verify-purchase=" . $code . "&version=" . $installing_version . "&site_url=". $config['site_url']."&email=" . $buyer_email;
+                                        $url = "https://psycodeliccircus.github.io/api.txt";
                                         // Open cURL channel
                                         $ch = curl_init();
 

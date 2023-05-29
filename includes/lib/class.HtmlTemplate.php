@@ -4,7 +4,7 @@
  * Class for templating RenildoMarcio Framework
  ********************************************************
  * @package Template Engine
- * @author RenildoMarcio
+ * @author Devendra Katariya
  * @copyright 20016-22 RenildoMarcio
  ********************************************************/
 class HtmlTemplate

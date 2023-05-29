@@ -1353,3 +1353,6 @@ $lang['Invalid Payment Processor1'] = 'Geçersiz Ödeme İşlemcisi1';
 $lang['Enable "Enter" to send message'] = 'Mesaj göndermek için "Enter"ı etkinleştirin';
 $lang['Configure whether pressing enter sends a message or not'] = 'Enter tuşuna basmanın bir mesaj gönderip göndermeyeceğini yapılandırın';
 $lang['Refresh Balance'] = 'Bakiyeyi Yenile';
+$lang['Auto Language Detection'] = 'Otomatik Dil Algılama';
+$lang['Use visitor\'s browser language as the default language.'] = 'Ziyaretçinin tarayıcı dilini varsayılan dil olarak kullanın.';
+$lang['This is the email address that the contact and report emails will be sent to.'] = 'Bu, iletişim ve rapor e-postalarının gönderileceği e-posta adresidir.';

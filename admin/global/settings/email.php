@@ -12,7 +12,7 @@
                             <label for="admin_email">
                                 <?php _e('Admin Email') ?>
                                 <i class="icon-feather-help-circle"
-                                   title="<?php _e('This is the email address that the contact and report emails will be sent to, aswell as being the from address in signup and notification emails.') ?>"
+                                   title="<?php _e('This is the email address that the contact and report emails will be sent to.') ?>"
                                    data-tippy-placement="top"></i>
                             </label>
                             <div>
@@ -42,18 +42,6 @@
                                     <option value="mail" <?php if (get_option("email_type") == 'mail') {
                                         echo "selected";
                                     } ?>>PHPMail
-                                    </option>
-                                    <option value="aws" <?php if (get_option("email_type") == 'aws') {
-                                        echo "selected";
-                                    } ?>>Amazon SES
-                                    </option>
-                                    <option value="mandrill" <?php if (get_option("email_type") == 'mandrill') {
-                                        echo "selected";
-                                    } ?>>Mandrill
-                                    </option>
-                                    <option value="sendgrid" <?php if (get_option("email_type") == 'sendgrid') {
-                                        echo "selected";
-                                    } ?>>SendGrid
                                     </option>
                                 </select>
                             </div>
@@ -149,78 +137,6 @@
                                             echo "selected";
                                         } ?>><?php _e('Off') ?></option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="mailMethod-aws mailMethods" <?php if ($config['email_type'] != 'aws') {
-                                echo 'style="display: none;"';
-                            } ?>>
-                                <h4 class="text-warning"><?php _e('Amazon SES') ?></h4>
-                                <hr>
-                                <div class="form-group">
-                                    <label for="aws_host"><?php _e('AWS Region') ?></label>
-                                    <input name="aws_host" type="text" class="form-control"
-                                           id="aws_host"
-                                           value="<?php echo get_option("aws_host"); ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="aws_access_key">
-                                        <?php _e('AWS SMTP Username') ?>
-                                        <i class="icon-feather-help-circle"
-                                           title="<?php _e('Note: Your SMTP user name and password are not the same as your AWS access key ID and secret access key. Do not attempt to use your AWS credentials to authenticate yourself against the SMTP endpoint.') ?>"
-                                           data-tippy-placement="top"></i>
-                                    </label>
-                                    <p class="help-block">
-                                        <?php _e('For more information about credential types') ?>,
-                                        <a
-                                            href="https://docs.aws.amazon.com/console/ses/using-credentials"
-                                            target="_blank"><?php _e('click here') ?>.</a></p>
-                                    <input name="aws_access_key" class="form-control" type="text"
-                                           id="aws_access_key"
-                                           value="<?php echo get_option("aws_access_key"); ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="aws_secret_key"><?php _e('AWS SMTP Password') ?></label>
-                                    <input name="aws_secret_key" type="password"
-                                           class="form-control"
-                                           id="aws_secret_key"
-                                           value="<?php echo get_option("aws_secret_key"); ?>">
-                                </div>
-
-                            </div>
-                            <div class="mailMethod-mandrill mailMethods" <?php if ($config['email_type'] != 'mandrill') {
-                                echo 'style="display: none;"';
-                            } ?>>
-                                <h4 class="text-warning"><?php _e('Mandrill') ?></h4>
-                                <hr>
-                                <div class="form-group">
-                                    <label for="mandrill_user"><?php _e('Mandrill Username') ?></label>
-                                    <input name="mandrill_user" class="form-control" type="text"
-                                           id="mandrill_user"
-                                           value="<?php echo get_option("mandrill_user"); ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="mandrill_key"><?php _e('Mandrill API Key') ?></label>
-                                    <input name="mandrill_key" type="text" class="form-control"
-                                           id="mandrill_key"
-                                           value="<?php echo get_option("mandrill_key"); ?>">
-                                </div>
-                            </div>
-                            <div class="mailMethod-sendgrid mailMethods" <?php if ($config['email_type'] != 'sendgrid') {
-                                echo 'style="display: none;"';
-                            } ?>>
-                                <h4 class="text-warning"><?php _e('SendGrid') ?></h4>
-                                <hr>
-                                <div class="form-group">
-                                    <label for="sendgrid_user"><?php _e('SendGrid Username') ?></label>
-                                    <input name="sendgrid_user" class="form-control" type="text"
-                                           id="sendgrid_user"
-                                           value="<?php echo get_option("sendgrid_user"); ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="sendgrid_pass"><?php _e('SendGrid Password') ?></label>
-                                    <input name="sendgrid_pass" type="password" class="form-control"
-                                           id="sendgrid_pass"
-                                           value="<?php echo get_option("sendgrid_pass"); ?>">
                                 </div>
                             </div>
                         </div>

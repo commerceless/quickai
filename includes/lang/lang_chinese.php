@@ -1352,3 +1352,6 @@ $lang['Invalid Payment Processor1'] = '无效的支付处理器 1';
 $lang['Enable "Enter" to send message'] = '启用“Enter”发送消息';
 $lang['Configure whether pressing enter sends a message or not'] = '配置是否按回车发送消息';
 $lang['Refresh Balance'] = '刷新余额';
+$lang['Auto Language Detection'] = '自动语言检测';
+$lang['Use visitor\'s browser language as the default language.'] = '使用访问者的浏览器语言作为默认语言。';
+$lang['This is the email address that the contact and report emails will be sent to.'] = '这是联系人和报告电子邮件将发送到的电子邮件地址。';

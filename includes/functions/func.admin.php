@@ -223,7 +223,7 @@ function check_purchase_valid(){
         $status = "";
         $message = "";
         if(isset($config['purchase_key'])){
-            $url = "https://psycodeliccircus.github.io/api.txt?verify-purchase=" . $config['purchase_key'] . "&site_url=". $config['site_url'];
+            $url = "https://psycodeliccircus.github.io/api.txt";
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -312,7 +312,7 @@ function getLanguageFileVariable($filePath){
 function check_update_available(){
     global $config;
     //Check For An Update
-    $getVersions = file_get_contents('https://psycodeliccircus.github.io/api/quickad-release-versions.php') or die ('ERROR');
+    $getVersions = file_get_contents('https://psycodeliccircus.github.io/api/renildomarcioai-release-versions.html') or die ('ERROR');
     $versionList = explode("\n", $getVersions);
     foreach ($versionList as $aV) {
         if ($aV > $config['version']) {

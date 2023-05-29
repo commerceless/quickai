@@ -411,10 +411,12 @@ function check_user_lang()
             return $config['lang'];
         } else {
             /* Get language from browser */
-            $browser_language_code = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? mb_substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : null;
-            if($browser_language_code) {
-                change_user_lang($browser_language_code);
-                return $config['lang'];
+            if(get_option('browser_lang')) {
+                $browser_language_code = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? mb_substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : null;
+                if ($browser_language_code) {
+                    change_user_lang($browser_language_code);
+                    return $config['lang'];
+                }
             }
         }
     }
@@ -586,7 +588,7 @@ function create_user_session($userid, $username, $password, $user_type = '')
     $user_id = preg_replace("/[^0-9]+/", "", $userid); // XSS protection as we might print this value
     $_SESSION['user']['id'] = $user_id;
 
-    $username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); // XSS protection as we might print this value
+    //$username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); // XSS protection as we might print this value
     $_SESSION['user']['username'] = $username;
     $_SESSION['user']['user_type'] = $user_type;
 

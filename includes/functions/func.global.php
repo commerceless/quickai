@@ -132,13 +132,12 @@ function overall_header($page_title = '', $meta_desc = '', $meta_image = '', $me
     $page_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     $meta_desc = ($meta_desc == '') ? $config['meta_description'] : $meta_desc;
 
-    $meta_image = $config['site_url'] . 'storage/logo/' . $config['site_logo'];
+    if (empty($meta_image)) {
+        $meta_image = $config['site_url'] . 'storage/logo/' . $config['site_logo'];
+    }
 
     if ($meta_article) {
         $meta_content = 'article';
-        if (empty($meta_image)) {
-            $meta_image = $config['site_url'] . 'storage/logo/' . $config['site_logo'];
-        }
     } else {
         $meta_content = 'website';
     }
@@ -2852,7 +2851,7 @@ function payment_error($status, $error_message, $access_token)
         }
 
     } else {
-        error_content(__("Invalid Payment Processor1"), $error_message);
+        error_content(__("Invalid Payment Processor"), $error_message);
         exit();
     }
 }

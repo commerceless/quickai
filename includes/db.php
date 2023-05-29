@@ -23,4 +23,4 @@ ORM::configure('return_result_sets', true);
 ORM::configure('logging', true);
 ORM::configure('caching', true);
 ORM::configure('caching_auto_clear', true);
-//ORM::clear_cache();
+ORM::clear_cache();

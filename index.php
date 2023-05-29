@@ -101,14 +101,16 @@ if($match) {
     /* get user data */
     $current_user = null;
     if(checkloggedin()) {
-        $current_user = get_user_data($_SESSION['user']['username']);
+        $current_user = get_user_data(null, $_SESSION['user']['id']);
 
         /* check for free plan */
-        if($current_user['group_id'] == 'free') {
-            /* redirect to membership page if free plan is disabled */
-            $free_plan = json_decode(get_option('free_membership_plan'), true);
-            if(!$free_plan['status']) {
-                headerRedirect($config['site_url'] . 'membership/changeplan');
+        if(CURRENT_PAGE != 'app/home' && strpos(CURRENT_PAGE, 'app/') !== false) {
+            if ($current_user['group_id'] == 'free') {
+                /* redirect to membership page if free plan is disabled */
+                $free_plan = json_decode(get_option('free_membership_plan'), true);
+                if (!$free_plan['status']) {
+                    headerRedirect($config['site_url'] . 'membership/changeplan');
+                }
             }
         }
     }

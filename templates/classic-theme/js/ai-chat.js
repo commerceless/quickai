@@ -9,6 +9,7 @@
     const $msgChatInner = $(".message-content-inner");
     const $msgSendBtn = $("#chat-send-button");
     const $msgLoader = $("#conversation-loader");
+    let eventSource = null;
 
     $(document).ready(function () {
         $(".conversation").first().trigger('click');
@@ -78,7 +79,8 @@
                         last_time = chat.date;
 
                         appendMessage(PERSON_NAME, PERSON_IMG, "right", chat.user_message);
-                        appendMessage(BOT_NAME, BOT_IMG, "left", chat.ai_message, "");
+                        if(chat.ai_message)
+                            appendMessage(BOT_NAME, BOT_IMG, "left", chat.ai_message, "");
                     }
 
                     hljs.highlightAll();
@@ -292,87 +294,149 @@
             contentType: false,
             processData: false,
             success: function (response) {
-                $msgSendBtn.removeClass('button-progress').prop('disabled', false);
-
                 if (response.success) {
-                    $typing.hide();
-                    $msg_txt.show();
-
                     let $active_conversation = $('.conversation.active');
                     $active_conversation.data('id', response.conversation_id);
-                    $active_conversation.find('.conversation-time').html(LANG_JUST_NOW);
-                    $active_conversation.find('.conversation-msg').html(response.last_message);
 
-                    /* move the conversation to top */
-                    var $myLi = $active_conversation.closest('li');
-                    if(!$myLi.is(':first-child'))
-                    {
-                        var $myUl = $active_conversation.closest('ul');
-                        var listHeight = $myUl.innerHeight();
-                        var elemHeight = $myLi.height();
-                        var elemTop = $myLi.position().top;
-                        var moveUp = listHeight - (listHeight - elemTop);
-                        var moveDown = elemHeight;
+                    eventSource = new EventSource(`${ajaxurl}?action=chat_stream&conv_id=${response.conversation_id}&bot_id=${$bot_id.val()}&last_message_id=${response.last_message_id}`);
 
-                        $("#conversations-wrapper li").each(function() {
-                            if ($(this).find('.conversation').hasClass('active')) {
-                                return false;
+                    let msg = '';
+                    eventSource.onmessage = function (e) {
+                        if (e.data === "[DONE]") {
+                            $msgSendBtn.removeClass('button-progress').prop('disabled', false);
+
+                            if(!ENABLE_TYPING_EFFECT) {
+                                $msg_txt.html(escape_html(msg));
+                                hljs.highlightAll();
+                            } else {
+                                var str = escape_html( msg),
+                                    i = 0,
+                                    isTag,
+                                    text;
+                                (function type() {
+                                    if (i < str.length) {
+                                        text = str.slice(0, ++i);
+                                        if (text === str) return;
+
+                                        $msg_txt.html(text);
+                                        hljs.highlightAll();
+
+                                        $msgChatInner.animate({
+                                            scrollTop: $msgChatInner.prop("scrollHeight")
+                                        }, 0);
+
+                                        var char = text.slice(-1);
+                                        if (char === '<') isTag = true;
+                                        if (char === '>') isTag = false;
+
+
+                                        if (isTag) return type();
+                                        setTimeout(type, 10);
+                                    } else {
+                                        $msgChatInner.animate({
+                                            scrollTop: $msgChatInner.prop("scrollHeight")
+                                        }, 500);
+                                    }
+                                }());
                             }
-                            $(this).animate({
-                                "top": '+=' + moveDown
-                            }, 400);
-                        });
 
-                        $myLi.animate({
-                            "top": '-=' + moveUp
-                        }, 400, function() {
-                            $myLi.prependTo('#conversations-wrapper')
-                            $myUl.children("li").attr("style", "");
-                        });
-                    }
+                            $active_conversation.find('.conversation-time').html(LANG_JUST_NOW);
+                            $active_conversation.find('.conversation-msg').text(msg.substring(0, 99));
 
-                    if(!ENABLE_TYPING_EFFECT) {
-                        response.message = escape_html(response.message);
-                        $msg_txt.html(response.message);
-                        hljs.highlightAll();
-                    } else {
-                        var str = escape_html( response.message),
-                            i = 0,
-                            isTag,
-                            text;
-                        (function type() {
-                            if (i < str.length) {
-                                text = str.slice(0, ++i);
-                                if (text === str) return;
+                            /* move the conversation to top */
+                            var $myLi = $active_conversation.closest('li');
+                            if(!$myLi.is(':first-child'))
+                            {
+                                var $myUl = $active_conversation.closest('ul');
+                                var listHeight = $myUl.innerHeight();
+                                var elemHeight = $myLi.height();
+                                var elemTop = $myLi.position().top;
+                                var moveUp = listHeight - (listHeight - elemTop);
+                                var moveDown = elemHeight;
 
-                                $msg_txt.html(text);
+                                $("#conversations-wrapper li").each(function() {
+                                    if ($(this).find('.conversation').hasClass('active')) {
+                                        return false;
+                                    }
+                                    $(this).animate({
+                                        "top": '+=' + moveDown
+                                    }, 400);
+                                });
+
+                                $myLi.animate({
+                                    "top": '-=' + moveUp
+                                }, 400, function() {
+                                    $myLi.prependTo('#conversations-wrapper')
+                                    $myUl.children("li").attr("style", "");
+                                });
+                            }
+
+                            $msgChatInner.animate({
+                                scrollTop: $msgChatInner.prop("scrollHeight")
+                            }, 500);
+
+                            eventSource.close();
+
+                        } else {
+                            let error = JSON.parse(e.data).error;
+                            if (error !== undefined) {
+                                console.log(e.data);
+                                eventSource.close();
+                                $msgSendBtn.removeClass('button-progress').prop('disabled', false);
+                                $error.html(error).slideDown().focus();
+                                return;
+                            }
+
+                            $typing.hide();
+                            $msg_txt.show();
+
+                            let txt = JSON.parse(e.data).choices[0].delta.content;
+                            if (txt !== undefined) {
+                                msg = msg + txt;
+                                let str = msg;
+                                if(str.indexOf('<') === -1){
+                                    str = escape_html(msg)
+                                } else {
+                                    str = str.replace(/[&<>"'`{}()\[\]]/g, (match) => {
+                                        switch (match) {
+                                            case '<':
+                                                return '&lt;';
+                                            case '>':
+                                                return '&gt;';
+                                            case '{':
+                                                return '&#123;';
+                                            case '}':
+                                                return '&#125;';
+                                            case '(':
+                                                return '&#40;';
+                                            case ')':
+                                                return '&#41;';
+                                            case '[':
+                                                return '&#91;';
+                                            case ']':
+                                                return '&#93;';
+                                            default:
+                                                return match;
+                                        }
+                                    });
+                                    str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+                                }
+                                $msg_txt.html(str);
                                 hljs.highlightAll();
 
                                 $msgChatInner.animate({
                                     scrollTop: $msgChatInner.prop("scrollHeight")
                                 }, 0);
-
-                                var char = text.slice(-1);
-                                if (char === '<') isTag = true;
-                                if (char === '>') isTag = false;
-
-
-                                if (isTag) return type();
-                                setTimeout(type, 10);
-                            } else {
-                                $msgChatInner.animate({
-                                    scrollTop: $msgChatInner.prop("scrollHeight")
-                                }, 500);
                             }
-                        }());
-                    }
-
-                    $msgChatInner.animate({
-                        scrollTop: $msgChatInner.prop("scrollHeight")
-                    }, 500);
-
-                    animate_value('quick-words-left', response.old_used_words, response.current_used_words, 4000);
+                        }
+                    };
+                    eventSource.onerror = function (e) {
+                        $msgSendBtn.removeClass('button-progress').prop('disabled', false);
+                        console.log(e);
+                        eventSource.close();
+                    };
                 } else {
+                    $msgSendBtn.removeClass('button-progress').prop('disabled', false);
                     $error.html(response.error).slideDown().focus();
                 }
             },
@@ -395,6 +459,16 @@
         }
     });
 
+    /* Stop button */
+    $('#chat-stop-button').on('click', function(e){
+        e.preventDefault();
+
+        if(eventSource){
+            $msgSendBtn.removeClass('button-progress').prop('disabled', false);
+            eventSource.close();
+        }
+    });
+
     /* Prompt library */
     $('#chat-prompts').on('click', function(e){
         e.preventDefault();
@@ -414,7 +488,6 @@
             }
         });
     });
-
     $('#prompt-search').on('keyup', function () {
         var searchTerm = $(this).val().toLowerCase();
         $('#chat-prompts-list').find('a').each(function () {
@@ -510,22 +583,6 @@
           `;
 
         $msgChat.append(msgHTML);
-    }
-
-    function animate_value(id, start, end, duration) {
-        if (start === end) return;
-        var range = end - start;
-        var current = start;
-        var increment = end > start ? 1 : -1;
-        var stepTime = Math.abs(Math.floor(duration / range));
-        var obj = document.getElementById(id);
-        var timer = setInterval(function () {
-            current += increment;
-            obj.innerHTML = current;
-            if (current == end) {
-                clearInterval(timer);
-            }
-        }, stepTime);
     }
 
     /* convert the api response */

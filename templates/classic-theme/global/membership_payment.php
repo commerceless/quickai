@@ -73,7 +73,6 @@ overall_header(__("Upgrade Membership"));
                                 <div class="payment-tab-content">
                                     <?php if($payment['folder'] != "2checkout"){ ?>
                                     <p><?php _e("You will be redirected to the payment page for complete payment.") ?></p>
-
                                     <?php } ?>
                                     <?php if($payment['folder'] == "stripe"){ ?>
                                         <?php if($config['stripe_payment_mode'] == "both"){ ?>
@@ -255,7 +254,14 @@ overall_header(__("Upgrade Membership"));
                                             </div>
                                         </div>
                                         <!-- CREDIT CARD FORM ENDS HERE -->
+                                        <script src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
                                     <?php } ?>
+
+                                    <?php if($payment['folder'] == "stripe"){
+                                        echo '<script src="https://js.stripe.com/v2/"></script>';
+                                    } else if ($payment['folder'] == "paystack") {
+                                        echo '<script src="https://js.paystack.co/v1/inline.js"></script>';
+                                    }?>
                                 </div>
                             </div>
                     <?php
@@ -305,11 +311,6 @@ overall_header(__("Upgrade Membership"));
 
 <script type="text/javascript" src="<?php _esc(TEMPLATE_URL);?>/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<?php _esc(TEMPLATE_URL);?>/js/jquery.payment.min.js"></script>
-
-<!-- payment js -->
-<script src="https://js.paystack.co/v1/inline.js"></script>
-<script src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
-<script src="https://js.stripe.com/v2/"></script>
 
 <script>
     var packagePrice = 1;

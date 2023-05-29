@@ -97,7 +97,7 @@ overall_header(__("AI Chat"));
                                         <span><?php _esc($ai_chat_bot_name) ?></span>
                                         <?php if ($bot_role) { ?>
                                             <br>
-                                            <div class="margin-top-3"><small><?php _esc($bot_role) ?></small></div>
+                                            <div class="margin-top-3"><small><?php _e($bot_role) ?></small></div>
                                         <?php } ?>
                                     </div>
                                 </h4>
@@ -124,7 +124,7 @@ overall_header(__("AI Chat"));
                                                      alt="<?php _esc($ai_chat_bot_name) ?>"/>
                                             </div>
                                             <div class="message-text">
-                                                <p><?php _esc($bot_welcome_msg) ?></p>
+                                                <p><?php _e($bot_welcome_msg) ?></p>
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>
